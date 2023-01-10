@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/screens/Home/app.dart';
+import 'package:prac_bkash_app/screens/HomeScreen/app.dart';
 
 void main() {
   runApp(MyApp());

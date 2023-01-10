@@ -12,7 +12,7 @@ class MyHomePage extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(82.0),
-        child: AppBarWidget(),
+        child: const AppBarWidget(),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.qr_code, color: Colors.pink, size: 40.0),
