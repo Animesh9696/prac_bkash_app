@@ -18,12 +18,12 @@ class _AppBarWidgetState extends State<AppBarWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 12.0),
-                child: CircleAvatar(
-                  radius: 28.0,
-                  backgroundColor: Colors.grey[200],
-                  backgroundImage: AssetImage('assets/images/pay_bill.jpg'),
+              Container(
+                height: 50,
+                margin: EdgeInsets.only(top: 10),
+                child: Icon(
+                  Icons.qr_code,
+                  size: 50.0,
                 ),
               ),
               SizedBox(width: 14.0),
@@ -31,7 +31,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 8.0),
-                  Text('Animesh kumar',
+                  Text('Roni Da',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,
@@ -60,7 +60,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                             ),
                           ),
                         ),
-                        Text('Tab for Balance',
+                        Text('200000000',
                             style: TextStyle(
                                 color: Colors.pink,
                                 fontSize: 18.0,
