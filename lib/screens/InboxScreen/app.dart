@@ -9,7 +9,9 @@ const InboxScreen({ Key? key }) : super(key: key);
       appBar: AppBar(
         title: const Text('Title'),
       ),
-      body: Container(),
+      body: Container(
+        child: Text("Hello inbox"),
+      ),
     );
   }
 }

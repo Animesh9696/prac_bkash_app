@@ -62,7 +62,7 @@ class BodyWidget extends StatelessWidget {
                     child: Row(
                       children: [
                         CardWidget(
-                            title: 'Sohel Rana',
+                            title: 'Animesh Kumar',
                             image: 'assets/images/mobile_recharge.jpg'),
                         CardWidget(
                             title: 'Akash', image: 'assets/images/make_payment.jpg'),

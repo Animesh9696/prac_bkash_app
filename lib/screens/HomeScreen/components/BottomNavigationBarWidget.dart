@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/screens/Notification/app.dart';
 
 import '../../InboxScreen/app.dart';
 import '../app.dart';
@@ -15,12 +14,12 @@ class BottomNavigationBarWidget extends StatefulWidget {
 
 int currentTab = 0; // to keep track of active tab index
   final List<Widget> screens = [
-    MyHomePage(),
+    MyHomeScreen(),
     InboxScreen()
 
   ];
 
-  Widget currentScreen = MyHomePage();
+  Widget currentScreen = MyHomeScreen();
 
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
@@ -40,12 +39,11 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               onPressed: () {
                 setState(() {
                   currentScreen =
-                      MyHomePage(); // if user taps on this dashboard tab will be active
+                      MyHomeScreen(); // if user taps on this dashboard tab will be active
                   currentTab = 0;
                 });
               },
               child: Container(
-                // margin: const EdgeInsets.all(lef),
                 margin: const EdgeInsets.only(left: 25.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

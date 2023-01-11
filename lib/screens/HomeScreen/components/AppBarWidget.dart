@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AppBarWidget extends StatelessWidget {
+class AppBarWidget extends StatefulWidget {
+  const AppBarWidget({Key? key}) : super(key: key);
 
- const AppBarWidget({ Key? key }) : super(key: key);
+  @override
+  _AppBarWidgetState createState() => _AppBarWidgetState();
+}
 
+class _AppBarWidgetState extends State<AppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -71,11 +75,32 @@ class AppBarWidget extends StatelessWidget {
         ),
       ),
       actions: [
-        Padding(
-          padding: const EdgeInsets.only(top: 12.0, right: 12.0),
-          child: Container(
-              width: 50, height: 50, child: Image.asset('assets/images/fly.png')),
-        )
+        Builder(builder: (context) {
+          return GestureDetector(
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.only(top: 12.0, right: 5.0),
+              child: Container(
+                  width: 50,
+                  height: 50,
+                  child: Image.asset('assets/images/fly.png')),
+            ),
+          );
+        }),
+        Builder(builder: (context) {
+          return GestureDetector(
+            onTap: () {
+              Scaffold.of(context).openEndDrawer();
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 12.0, right: 5.0),
+              child: Container(
+                  width: 50,
+                  height: 50,
+                  child: Image.asset('assets/images/fly.png')),
+            ),
+          );
+        }),
       ],
     );
   }
