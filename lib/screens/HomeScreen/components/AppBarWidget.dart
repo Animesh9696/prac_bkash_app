@@ -31,7 +31,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 8.0),
-                  Text('Roni Da',
+                  Text('Animesh Kumar',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,

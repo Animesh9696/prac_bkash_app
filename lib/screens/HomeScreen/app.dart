@@ -20,7 +20,7 @@ class _AppState extends State<MyHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(82.0),
         child: AppBarWidget()
