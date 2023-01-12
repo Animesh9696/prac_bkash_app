@@ -18,7 +18,6 @@ class _CrouselWidgetsState extends State<CrouselWidgets> {
   ];
 
   int currentIndex = 0;
-
   int _currentPage = 0;
   late Timer _timer;
   PageController _pageController = PageController(

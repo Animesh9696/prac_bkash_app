@@ -77,23 +77,11 @@ class _AppBarWidgetState extends State<AppBarWidget> {
       actions: [
         Builder(builder: (context) {
           return GestureDetector(
-            onTap: () {},
-            child: Padding(
-              padding: const EdgeInsets.only(top: 12.0, right: 5.0),
-              child: Container(
-                  width: 50,
-                  height: 50,
-                  child: Image.asset('assets/images/fly.png')),
-            ),
-          );
-        }),
-        Builder(builder: (context) {
-          return GestureDetector(
             onTap: () {
               Scaffold.of(context).openEndDrawer();
             },
             child: Padding(
-              padding: const EdgeInsets.only(top: 12.0, right: 5.0),
+              padding: const EdgeInsets.only(top: 12.0, right: 10.0),
               child: Container(
                   width: 50,
                   height: 50,
