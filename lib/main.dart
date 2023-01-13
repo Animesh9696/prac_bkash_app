@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/screens/HomeScreen/app.dart';
+
+import 'screens/Home/app.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomeScreen(),
+      home: Home(),
       debugShowCheckedModeBanner: false,
     );
   }

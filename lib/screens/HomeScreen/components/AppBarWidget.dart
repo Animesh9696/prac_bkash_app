@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../QrcodeScreen/app.dart';
+
 class AppBarWidget extends StatefulWidget {
   const AppBarWidget({Key? key}) : super(key: key);
 
@@ -20,10 +22,18 @@ class _AppBarWidgetState extends State<AppBarWidget> {
             children: [
               Container(
                 height: 50,
-                margin: EdgeInsets.only(top: 10),
-                child: Icon(
-                  Icons.qr_code,
-                  size: 50.0,
+                child: IconButton(
+                  iconSize: 50,
+                  icon: const Icon(
+                    Icons.qr_code,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => QrCodeScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
               SizedBox(width: 14.0),

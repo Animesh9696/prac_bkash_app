@@ -24,10 +24,13 @@ class BodyWidget extends StatelessWidget {
                 Row(
                   children: [
                     MenuWidget(
-                        title: 'Send Money', image: 'assets/images/send_money.jpg'),
+                        title: 'Send Money',
+                        image: 'assets/images/send_money.jpg'),
                     MenuWidget(
-                        title: 'Recharge', image: 'assets/images/mobile_recharge.jpg'),
-                    MenuWidget(title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
+                        title: 'Recharge',
+                        image: 'assets/images/mobile_recharge.jpg'),
+                    MenuWidget(
+                        title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
                     MenuWidget(
                         title: 'Make Payment',
                         image: 'assets/images/make_payment.jpg'),
@@ -37,16 +40,18 @@ class BodyWidget extends StatelessWidget {
                 Row(
                   children: [
                     MenuWidget(
-                        title: 'Add Money', image: 'assets/images/add_money.jpg'),
-                    MenuWidget(title: 'Pay Bill', image: 'assets/images/pay_bill.jpg'),
-                    MenuWidget(title: 'Tickets', image: 'assets/images/tickets.jpg'),
+                        title: 'Add Money',
+                        image: 'assets/images/add_money.jpg'),
+                    MenuWidget(
+                        title: 'Pay Bill', image: 'assets/images/pay_bill.jpg'),
+                    MenuWidget(
+                        title: 'Tickets', image: 'assets/images/tickets.jpg'),
                     MenuWidget(title: 'More', image: 'assets/images/more.jpg'),
                   ],
                 ),
               ],
             ),
           ),
-
           CrouselWidgets(),
           Card(
             color: Colors.white,
@@ -68,13 +73,16 @@ class BodyWidget extends StatelessWidget {
                             title: 'Recharge',
                             image: 'assets/images/mobile_recharge.jpg'),
                         CardWidget(
-                            title: 'Akash', image: 'assets/images/make_payment.jpg'),
+                            title: 'Akash',
+                            image: 'assets/images/make_payment.jpg'),
                         CardWidget(
-                            title: 'Internet', image: 'assets/images/pay_bill.jpg'),
+                            title: 'Internet',
+                            image: 'assets/images/pay_bill.jpg'),
                         CardWidget(
-                            title: 'Card', image: 'assets/images/add_money.jpg'),
+                            title: 'Card',
+                            image: 'assets/images/add_money.jpg'),
                         CardWidget(
-                            title: 'Sohel Rana',
+                            title: 'Mobile Recharge',
                             image: 'assets/images/mobile_recharge.jpg'),
                       ],
                     ),
@@ -83,7 +91,6 @@ class BodyWidget extends StatelessWidget {
               ),
             ),
           ),
-          
           Card(
             color: Colors.white,
             margin: EdgeInsets.only(left: 12.0, right: 12.0, bottom: 12.0),
@@ -101,14 +108,19 @@ class BodyWidget extends StatelessWidget {
                     child: Row(
                       children: [
                         CardWidget(
-                            title: 'Card bill', image: 'assets/images/card_bill.jpg'),
-                        CardWidget(title: 'BTCL', image: 'assets/images/btcl.jpg'),
+                            title: 'Card bill',
+                            image: 'assets/images/card_bill.jpg'),
                         CardWidget(
-                            title: 'CoronaBD', image: 'assets/images/coronabd.jpg'),
+                            title: 'BTCL', image: 'assets/images/btcl.jpg'),
                         CardWidget(
-                            title: 'Donation', image: 'assets/images/donation.jpg'),
+                            title: 'CoronaBD',
+                            image: 'assets/images/coronabd.jpg'),
                         CardWidget(
-                            title: 'MetLife', image: 'assets/images/metlife.jpg'),
+                            title: 'Donation',
+                            image: 'assets/images/donation.jpg'),
+                        CardWidget(
+                            title: 'MetLife',
+                            image: 'assets/images/metlife.jpg'),
                       ],
                     ),
                   )
@@ -116,7 +128,6 @@ class BodyWidget extends StatelessWidget {
               ),
             ),
           ),
-
           Card(
             color: Colors.white,
             margin: EdgeInsets.only(left: 12.0, right: 12.0, bottom: 12.0),
@@ -133,14 +144,18 @@ class BodyWidget extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        CardWidget(title: 'Daraz', image: 'assets/images/daraz.jpg'),
-                        CardWidget(title: 'Airtel', image: 'assets/images/airtel.jpg'),
                         CardWidget(
-                            title: 'Ajkerdeal', image: 'assets/images/ajkerdeal.jpg'),
+                            title: 'Daraz', image: 'assets/images/daraz.jpg'),
+                        CardWidget(
+                            title: 'Airtel', image: 'assets/images/airtel.jpg'),
+                        CardWidget(
+                            title: 'Ajkerdeal',
+                            image: 'assets/images/ajkerdeal.jpg'),
                         CardWidget(
                             title: 'Grameenphone',
                             image: 'assets/images/grameenphone.jpg'),
-                        CardWidget(title: 'Robi', image: 'assets/images/robi.jpg'),
+                        CardWidget(
+                            title: 'Robi', image: 'assets/images/robi.jpg'),
                       ],
                     ),
                   )
@@ -157,10 +172,13 @@ class BodyWidget extends StatelessWidget {
                 Row(
                   children: [
                     MenuWidget(
-                        title: 'Send Money', image: 'assets/images/send_money.jpg'),
+                        title: 'Send Money',
+                        image: 'assets/images/send_money.jpg'),
                     MenuWidget(
-                        title: 'Recharge', image: 'assets/images/mobile_recharge.jpg'),
-                    MenuWidget(title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
+                        title: 'Recharge',
+                        image: 'assets/images/mobile_recharge.jpg'),
+                    MenuWidget(
+                        title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
                     MenuWidget(
                         title: 'Make Payment',
                         image: 'assets/images/make_payment.jpg'),
@@ -170,9 +188,12 @@ class BodyWidget extends StatelessWidget {
                 Row(
                   children: [
                     MenuWidget(
-                        title: 'Add Money', image: 'assets/images/add_money.jpg'),
-                    MenuWidget(title: 'Pay Bill', image: 'assets/images/pay_bill.jpg'),
-                    MenuWidget(title: 'Tickets', image: 'assets/images/tickets.jpg'),
+                        title: 'Add Money',
+                        image: 'assets/images/add_money.jpg'),
+                    MenuWidget(
+                        title: 'Pay Bill', image: 'assets/images/pay_bill.jpg'),
+                    MenuWidget(
+                        title: 'Tickets', image: 'assets/images/tickets.jpg'),
                   ],
                 ),
               ],
