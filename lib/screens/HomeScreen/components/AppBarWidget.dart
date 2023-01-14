@@ -10,6 +10,10 @@ class AppBarWidget extends StatefulWidget {
 }
 
 class _AppBarWidgetState extends State<AppBarWidget> {
+  bool _isBalanceShow = false;
+  bool _isAnimation = false;
+  bool _isBalance = true;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -48,34 +52,54 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                           fontWeight: FontWeight.w400,
                           letterSpacing: 1.0)),
                   SizedBox(height: 6.0),
-                  Container(
-                    width: 200,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 4.0),
-                          child: Container(
-                            width: 25,
-                            height: 25,
-                            padding: EdgeInsets.all(2.0),
-                            child: CircleAvatar(
-                              backgroundColor: Colors.pink,
-                              backgroundImage:
-                                  AssetImage('assets/images/currency.png'),
+                  InkWell(
+                    onTap: changeState,
+                    child: Container(
+                      width: 160,
+                      height: 28,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          AnimatedOpacity(
+                            opacity: _isBalanceShow ? 1 : 0,
+                            duration: Duration(milliseconds: 500),
+                            child: Text(
+                              "Tk 2000",
+                              style: TextStyle(fontSize: 20),
                             ),
                           ),
-                        ),
-                        Text('200000000',
-                            style: TextStyle(
+                          AnimatedOpacity(
+                            opacity: _isBalance ? 1 : 0,
+                            duration: Duration(milliseconds: 300),
+                            child: Text(
+                              "Show",
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                          AnimatedPositioned(
+                            child: Container(
+                              height: 20,
+                              width: 20,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
                                 color: Colors.pink,
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w600))
-                      ],
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Text(
+                                "",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 17),
+                              ),
+                            ),
+                            duration: Duration(milliseconds: 100),
+                            left: _isAnimation == false ? 5 : 135,
+                            curve: Curves.fastOutSlowIn,
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],
@@ -101,5 +125,41 @@ class _AppBarWidgetState extends State<AppBarWidget> {
         }),
       ],
     );
+  }
+
+  changeState() async {
+    _isAnimation = true;
+    _isBalance = false;
+
+    setState(() {});
+
+    await Future.delayed(
+        Duration(milliseconds: 800),
+        () => {
+              setState(
+                () => _isBalanceShow = true,
+              )
+            });
+    await Future.delayed(
+        Duration(milliseconds: 800),
+        () => {
+              setState(
+                () => _isBalanceShow = false,
+              )
+            });
+    await Future.delayed(
+        Duration(milliseconds: 300),
+        () => {
+              setState(
+                () => _isAnimation = false,
+              )
+            });
+    await Future.delayed(
+        Duration(milliseconds: 200),
+        () => {
+              setState(
+                () => _isBalance = true,
+              )
+            });
   }
 }
