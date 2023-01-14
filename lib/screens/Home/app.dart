@@ -112,7 +112,6 @@ class _AppState extends State<Home> {
           onPressed: () {}),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
-      endDrawer: DrawerWidget(),
     );
   }
 }

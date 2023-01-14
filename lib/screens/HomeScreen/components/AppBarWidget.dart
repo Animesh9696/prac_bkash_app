@@ -17,6 +17,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       flexibleSpace: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

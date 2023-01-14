@@ -22,6 +22,7 @@ class _AppState extends State<HomeScreen> {
       body: BodyWidget(),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
+          endDrawer: DrawerWidget(),
     );
   }
 }
