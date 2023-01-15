@@ -2,31 +2,48 @@ import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/screens/Home/app.dart';
 
 class AppBarWidget extends StatelessWidget {
-const AppBarWidget({ Key? key }) : super(key: key);
+  const AppBarWidget({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Container(
       color: Colors.pink,
       width: double.infinity,
       height: 55,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(width: 15,),
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).pop(
-                      MaterialPageRoute(
-                        builder: (context) => Home(),
-                      ),
-                    );
-            },
-            child: Icon(Icons.arrow_back,color: Colors.white),
-          ),
-          SizedBox(width: 135,),
-          Text("My QR",style: TextStyle(color: Colors.white),)
+          Builder(builder: (context) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop(
+                  MaterialPageRoute(
+                    builder: (context) => Home(),
+                  ),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 5.0, right: 10.0),
+                child: Container(
+                    width: 50,
+                    height: 50,
+                    child: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    )),
+              ),
+            );
+          }),
+          Expanded(
+              child: Container(
+            margin: const EdgeInsets.only(right: 50),
+            alignment: Alignment.center,
+            child: const Text(
+              "Inbox",
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+          ))
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/screens/HomeScreen/components/DrawerWidget.dart';
+import 'package:prac_bkash_app/screens/Home/widgets/DrawerWidget.dart';
 
 import '../InboxScreen/components/AppBarWidget.dart';
 import '../InboxScreen/components/BodyWidget.dart';

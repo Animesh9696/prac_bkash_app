@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utils/spacingWidget.dart';
 
 class MenuWidget extends StatelessWidget {
   const MenuWidget({
@@ -19,10 +20,9 @@ class MenuWidget extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(image),
-          SizedBox(height: 5.0),
+          addVerticalSpace(5.0),
           Text(title,
-              style: TextStyle(color: Colors.black45),
-              overflow: TextOverflow.ellipsis),
+              style: TextStyle(color: Colors.black45)),
         ],
       ),
     );

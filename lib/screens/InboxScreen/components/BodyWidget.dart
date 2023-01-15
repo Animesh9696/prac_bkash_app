@@ -6,7 +6,7 @@ class BodyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       height: double.infinity,
       width: double.infinity,
       color: Colors.white,
@@ -20,8 +20,8 @@ class BodyWidget extends StatelessWidget {
             Container(
                 height: 400,
                 width: 400,
-                child: Icon(Icons.notifications)),
-            SizedBox(
+                child: const Icon(Icons.notifications)),
+            const SizedBox(
               height: 5,
             ),
           ],

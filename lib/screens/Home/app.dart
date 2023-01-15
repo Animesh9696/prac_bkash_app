@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/app.dart';
 import 'package:prac_bkash_app/screens/InboxScreen/app.dart';
 
-import '../HomeScreen/components/DrawerWidget.dart';
+import 'widgets/DrawerWidget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

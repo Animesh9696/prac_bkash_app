@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'components/AppBarWidget.dart';
 import 'components/BodyWidget.dart';
-import 'components/DrawerWidget.dart';
+import '../Home/widgets/DrawerWidget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

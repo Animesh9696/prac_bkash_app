@@ -16,9 +16,9 @@ class AppBarWidget extends StatelessWidget {
         children: [
           Expanded(
               child: Container(
-                margin: EdgeInsets.only(left: 50),
+                margin: const EdgeInsets.only(left: 50),
                 alignment: Alignment.center,
-            child: Text(
+            child: const Text(
               "Inbox",
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
