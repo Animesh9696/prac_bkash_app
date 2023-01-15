@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/app.dart';
 import 'package:prac_bkash_app/screens/InboxScreen/app.dart';
+import 'package:prac_bkash_app/utils/spacingWidget.dart';
 
 import 'widgets/DrawerWidget.dart';
 
@@ -12,18 +13,19 @@ class Home extends StatefulWidget {
 }
 
 class _AppState extends State<Home> {
-  int currentTab = 0; // to keep track of active tab index
+
+  int _currentTab = 0; // to keep track of active tab index
   final List<Widget> screens = [
     HomeScreen(),
     InboxScreen(),
   ];
 
-  Widget currentScreen = HomeScreen();
+  Widget _currentScreen = HomeScreen();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: currentScreen,
+      body: _currentScreen,
       bottomNavigationBar: Container(
         height: 70,
         child: BottomAppBar(
@@ -37,13 +39,12 @@ class _AppState extends State<Home> {
                 minWidth: 40,
                 onPressed: () {
                   setState(() {
-                    currentScreen =
+                    _currentScreen =
                         HomeScreen(); // if user taps on this dashboard tab will be active
-                    currentTab = 0;
+                    _currentTab = 0;
                   });
                 },
                 child: Container(
-                  // margin: const EdgeInsets.all(lef),
                   margin: const EdgeInsets.only(left: 25.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -51,12 +52,12 @@ class _AppState extends State<Home> {
                       Icon(
                         Icons.home,
                         size: 35,
-                        color: currentTab == 0 ? Colors.pink : Colors.grey,
+                        color: _currentTab == 0 ? Colors.pink : Colors.grey,
                       ),
                       Text(
                         'HOME',
                         style: TextStyle(
-                          color: currentTab == 0 ? Colors.pink : Colors.grey,
+                          color: _currentTab == 0 ? Colors.pink : Colors.grey,
                         ),
                       ),
                     ],
@@ -64,7 +65,7 @@ class _AppState extends State<Home> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 25.0),
+                margin: addMarginTop(25),
                 child: const Text(
                   'QR SCAN',
                   style: TextStyle(),
@@ -74,25 +75,25 @@ class _AppState extends State<Home> {
                 minWidth: 40,
                 onPressed: () {
                   setState(() {
-                    currentScreen =
+                    _currentScreen =
                         InboxScreen(); // if user taps on this dashboard tab will be active
-                    currentTab = 1;
+                    _currentTab = 1;
                   });
                 },
                 child: Container(
-                  margin: const EdgeInsets.only(right: 25.0),
+                  margin: addMarginRight(25),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Icon(
                         Icons.mail_rounded,
                         size: 35,
-                        color: currentTab == 1 ? Colors.pink : Colors.grey,
+                        color: _currentTab == 1 ? Colors.pink : Colors.grey,
                       ),
                       Text(
                         'INBOX',
                         style: TextStyle(
-                          color: currentTab == 1 ? Colors.pink : Colors.grey,
+                          color: _currentTab == 1 ? Colors.pink : Colors.grey,
                         ),
                       ),
                     ],
