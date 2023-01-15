@@ -11,3 +11,11 @@ Widget addHorizontalSpace(double width) {
     width: width,
   );
 }
+
+EdgeInsets addPadding(double padding) {
+  return EdgeInsets.all(padding);
+}
+
+EdgeInsets addMargin(double margin) {
+  return EdgeInsets.all(margin);
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utils/spacingWidget.dart';
 
 class BodyWidget extends StatelessWidget {
   const BodyWidget({Key? key}) : super(key: key);
@@ -6,7 +7,7 @@ class BodyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(15),
+      margin: addMargin(15),
       height: double.infinity,
       width: double.infinity,
       color: Colors.white,
@@ -21,12 +22,11 @@ class BodyWidget extends StatelessWidget {
                 height: 400,
                 width: 400,
                 child: Image.asset("assets/images/qr_code.png")),
-            SizedBox(
-              height: 5,
-            ),
+            
+            addVerticalSpace(5.0),
             Container(
               width: 170,
-              padding: EdgeInsets.all(8),
+              padding: addPadding(8.0),
               decoration: BoxDecoration(
                 color: Colors.pink,
                 borderRadius: BorderRadius.circular(15)
@@ -35,9 +35,7 @@ class BodyWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.download,color: Colors.white,),
-                  SizedBox(
-                    width: 5,
-                  ),
+                  addHorizontalSpace(5.0),
                   Text("Download")
                 ],
               ),
