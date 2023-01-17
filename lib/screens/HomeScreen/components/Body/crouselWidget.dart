@@ -57,6 +57,7 @@ class _CrouselWidgetsState extends State<CrouselWidgets> {
             height: 100,
             width: double.infinity,
             child: PageView.builder(
+              pageSnapping: false,
                 scrollDirection: Axis.horizontal,
                 controller: _pageController,
                 onPageChanged: (index) {
@@ -90,7 +91,7 @@ class _CrouselWidgetsState extends State<CrouselWidgets> {
       ),
     );
   }
-  @override
+
   Widget buildIndicator(bool isSelected) {
     return Container(
       height: isSelected ? 12 : 8,

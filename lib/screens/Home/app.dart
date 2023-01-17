@@ -3,8 +3,6 @@ import 'package:prac_bkash_app/screens/HomeScreen/app.dart';
 import 'package:prac_bkash_app/screens/InboxScreen/app.dart';
 import 'package:prac_bkash_app/utils/spacingWidget.dart';
 
-import 'widgets/DrawerWidget.dart';
-
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -110,7 +108,13 @@ class _AppState extends State<Home> {
             color: Colors.black,
           ),
           backgroundColor: Colors.white,
-          onPressed: () {}),
+          onPressed: () {
+            // Navigator.of(context).push(
+            //       MaterialPageRoute(
+            //         builder: (context) => QrScannerScreen(),
+            //       ),
+            //     );
+          }),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
     );

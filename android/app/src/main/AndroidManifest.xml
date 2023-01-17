@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prac_bkash_app">
+   
+
    <application
         android:label="prac_bkash_app"
         android:name="${applicationName}"
