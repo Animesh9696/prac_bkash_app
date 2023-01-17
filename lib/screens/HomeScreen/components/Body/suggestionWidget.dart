@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/card.dart';
+import '../../../../widgets/card.dart';
 
 class SuggestionWidget extends StatelessWidget {
   const SuggestionWidget({Key? key}) : super(key: key);

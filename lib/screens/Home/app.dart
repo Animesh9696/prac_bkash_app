@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/app.dart';
 import 'package:prac_bkash_app/screens/InboxScreen/app.dart';
-import 'package:prac_bkash_app/utils/spacingWidget.dart';
+import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/constants.dart';
 
 import 'screens/Home/app.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'bKash UI',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: primaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Home(),

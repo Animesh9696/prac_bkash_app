@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/menuwidget.dart';
+import '../../../../widgets/menuwidget.dart';
 
 class OtherOffersWidget extends StatelessWidget {
   const OtherOffersWidget({Key? key}) : super(key: key);

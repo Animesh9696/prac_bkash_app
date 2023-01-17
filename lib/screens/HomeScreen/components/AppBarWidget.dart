@@ -113,6 +113,20 @@ class _AppBarWidgetState extends State<AppBarWidget> {
         Builder(builder: (context) {
           return GestureDetector(
             onTap: () {
+              // Scaffold.of(context).openEndDrawer();
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 12.0, right: 10.0),
+              child: Container(
+                  width: 50,
+                  height: 50,
+                  child: Image.asset('assets/images/fly.png')),
+            ),
+          );
+        }),
+        Builder(builder: (context) {
+          return GestureDetector(
+            onTap: () {
               Scaffold.of(context).openEndDrawer();
             },
             child: Padding(
@@ -124,6 +138,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
             ),
           );
         }),
+        
       ],
     );
   }

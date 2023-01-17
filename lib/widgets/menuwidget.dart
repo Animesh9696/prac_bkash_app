@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/utils/spacingWidget.dart';
+import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 class MenuWidget extends StatelessWidget {
   const MenuWidget({

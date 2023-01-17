@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/card.dart';
+import '../../../../widgets/card.dart';
 
 class MyBkashWidget extends StatelessWidget {
   const MyBkashWidget({Key? key}) : super(key: key);

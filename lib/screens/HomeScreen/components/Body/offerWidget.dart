@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/card.dart';
+import '../../../../widgets/card.dart';
 
 class OfferWidget extends StatelessWidget {
   const OfferWidget({Key? key}) : super(key: key);
