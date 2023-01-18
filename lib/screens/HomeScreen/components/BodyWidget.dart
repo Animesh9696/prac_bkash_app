@@ -10,79 +10,142 @@ import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../../../widgets/card.dart';
 
-class BodyWidget extends StatelessWidget {
-  BodyWidget({
-    Key? key,
-  }) : super(key: key);
+class BodyWidget extends StatefulWidget {
+  const BodyWidget({Key? key}) : super(key: key);
 
-  List<String> images = [
-    "assets/images/mobile_recharge.jpg",
-    "assets/images/mobile_recharge.jpg",
-    "assets/images/mobile_recharge.jpg",
-    "assets/images/mobile_recharge.jpg",
-    "assets/images/mobile_recharge.jpg",
-  ];
+  @override
+  _BodyWidgetState createState() => _BodyWidgetState();
+}
 
-  List<String> titles = [
-    "My Offer",
-    "My Offer",
-    "My Offer",
-    "My Offer",
-    "My Offer",
-  ];
+bool _isVisible = true;
 
+class _BodyWidgetState extends State<BodyWidget> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Container(
-            margin: addMargin(5),
-            child: Container(
-              decoration: BoxDecoration(
-                  border:
-                      Border.all(color: const Color.fromARGB(255, 240, 233, 233))),
-              child: Column(
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        padding: addPadding(5),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: const Color.fromARGB(255, 238, 233, 233))),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text("Suggestions"),
-                            GestureDetector(
-                              onTap: () {
-                               
-                              },
-                              child: const Text("See More",style: TextStyle(color: primaryColor),),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: const Color.fromARGB(255, 240, 233, 233))),
-                        child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                for (int i = 0; i < images.length; i++)
-                                  CardWidget(
-                                    image: images[i],
-                                    title: titles[i],
-                                  )
-                              ],
-                            )),
-                      )
-                    ],
-                  ),
-                ],
+          margin: addMargin(5),
+          child: Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Container(
+                margin: addMarginBottom(14),
+                child: MenusWidget(),
               ),
-            )));
+              Container(
+                child: Visibility(
+                    visible: _isVisible,
+                    child: Opacity(
+                      opacity: 0.84,
+                      child: Container(
+                          color: Colors.white,
+                          height: 130,
+                          width: double.infinity),
+                    )),
+              ),
+              
+              Container(
+                child: GestureDetector(
+                    onTap: () => {
+                          setState(() {
+                            if (_isVisible) {
+                              _isVisible = false;
+                            } else {
+                              _isVisible = true;
+                            }
+                          })
+                        },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            color: Color.fromARGB(255, 226, 222, 222)
+                          ),
+                          boxShadow: List.empty()),
+                      width: 70,
+                      child: _isVisible ? buttonCard1() : buttonCard2(),
+                    )),
+              )
+            ],
+          ),
+        ));
+  }
+
+  Widget buttonCard1() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text("Open"),
+        Icon(Icons.arrow_downward),
+      ],
+    );
+  }
+
+  Widget buttonCard2() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("Close"),
+        Icon(Icons.arrow_upward),
+      ],
+    );
   }
 }
+
+class $a {}
+
+// class BodyWidget extends StatelessWidget {
+//   BodyWidget({
+//     Key? key,
+//   }) : super(key: key);
+
+//   List<String> images = [
+//     "assets/images/mobile_recharge.jpg",
+//     "assets/images/mobile_recharge.jpg",
+//     "assets/images/mobile_recharge.jpg",
+//     "assets/images/mobile_recharge.jpg",
+//     "assets/images/mobile_recharge.jpg",
+//   ];
+
+//   List<String> titles = [
+//     "My Offer",
+//     "My Offer",
+//     "My Offer",
+//     "My Offer",
+//     "My Offer",
+//   ];
+
+//   late bool _isVisible = true;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return SingleChildScrollView(
+//         physics: const BouncingScrollPhysics(),
+//         child: Container(
+//           margin: addMargin(5),
+//           child: Stack(
+//             children: [
+//               Container(
+//                 child: MenusWidget(),
+//               ),
+//               Visibility(
+//                   visible: _isVisible,
+//                   child: Container(
+//                     color: Colors.white,
+//                     height: 50,
+//                     child: Text("Hello"),
+//                   )),
+//               GestureDetector(
+//                 onTap: () {
+//                   _isVisible = false;
+//                 },
+//                 child: Icon(
+//                     _isVisible ? Icons.arrow_upward : Icons.arrow_downward),
+//               )
+//             ],
+//           ),
+//         ));
+//   }
+// }

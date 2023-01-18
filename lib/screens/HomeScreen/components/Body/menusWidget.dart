@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../../../../widgets/menuwidget.dart';
 
@@ -27,7 +28,17 @@ class MenusWidget extends StatelessWidget {
                   image: 'assets/images/make_payment.jpg'),
             ],
           ),
-          SizedBox(height: 8.0),
+          addVerticalSpace(5),
+          Row(
+            children: [
+              MenuWidget(
+                  title: 'Add Money', image: 'assets/images/add_money.jpg'),
+              MenuWidget(
+                  title: 'Pay Bill', image: 'assets/images/pay_bill.jpg'),
+              MenuWidget(title: 'Tickets', image: 'assets/images/tickets.jpg'),
+              MenuWidget(title: 'More', image: 'assets/images/more.jpg'),
+            ],
+          ),
           Row(
             children: [
               MenuWidget(

@@ -15,7 +15,7 @@ class MenuWidget extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
       width: size.width / 4 - 6,
-      height: 100,
+      height: 93,
       color: Colors.white,
       child: Column(
         children: [
