@@ -24,51 +24,107 @@ class _BodyWidgetState extends State<BodyWidget> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        child: Container(
-          margin: addMargin(5),
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Container(
-                margin: addMarginBottom(14),
-                child: MenusWidget(),
+        child: Column(
+          children: [
+            Container(
+              margin: addMargin(5),
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Container(
+                    margin: addMarginBottom(14),
+                    child: MenusWidget(),
+                  ),
+                  Container(
+                    child: Visibility(
+                        visible: _isVisible,
+                        child: Opacity(
+                          opacity: 0.84,
+                          child: Container(
+                              color: Colors.white,
+                              height: 130,
+                              width: double.infinity),
+                        )),
+                  ),
+                  Container(
+                    child: GestureDetector(
+                        onTap: () => {
+                              setState(() {
+                                if (_isVisible) {
+                                  _isVisible = false;
+                                } else {
+                                  _isVisible = true;
+                                }
+                              })
+                            },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(
+                                  color: Color.fromARGB(255, 226, 222, 222)),
+                              boxShadow: List.empty()),
+                          width: 70,
+                          child: _isVisible ? buttonCard1() : buttonCard2(),
+                        )),
+                  )
+                ],
               ),
-              Container(
-                child: Visibility(
-                    visible: _isVisible,
-                    child: Opacity(
-                      opacity: 0.84,
-                      child: Container(
-                          color: Colors.white,
-                          height: 130,
-                          width: double.infinity),
-                    )),
-              ),
-              
-              Container(
-                child: GestureDetector(
-                    onTap: () => {
-                          setState(() {
-                            if (_isVisible) {
-                              _isVisible = false;
-                            } else {
-                              _isVisible = true;
-                            }
-                          })
-                        },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                            color: Color.fromARGB(255, 226, 222, 222)
-                          ),
-                          boxShadow: List.empty()),
-                      width: 70,
-                      child: _isVisible ? buttonCard1() : buttonCard2(),
-                    )),
-              )
-            ],
-          ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showModalBottomSheet(
+                    useRootNavigator: true,
+                    isScrollControlled: true,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(15.0),
+                      ),
+                    ),
+                    context: context,
+                    builder: (contex) {
+                      return SizedBox(
+                        height: 350,
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(
+                                  10),
+                                  margin: EdgeInsets.only(left: 5,right: 5),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text("Suggestions"),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      "Close",
+                                      style: TextStyle(color: primaryColor),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                                child: GridView.builder(
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 3,
+                                    ),
+                                    itemBuilder: (context, int index) {
+                                      return CardWidget(
+                                          title: "Send Money", image: "assets/images/send_money.jpg");
+                                    }))
+                          ],
+                        ),
+                      );
+                    });
+              },
+              child: Text("Click"),
+            )
+          ],
         ));
   }
 
@@ -93,59 +149,3 @@ class _BodyWidgetState extends State<BodyWidget> {
     );
   }
 }
-
-class $a {}
-
-// class BodyWidget extends StatelessWidget {
-//   BodyWidget({
-//     Key? key,
-//   }) : super(key: key);
-
-//   List<String> images = [
-//     "assets/images/mobile_recharge.jpg",
-//     "assets/images/mobile_recharge.jpg",
-//     "assets/images/mobile_recharge.jpg",
-//     "assets/images/mobile_recharge.jpg",
-//     "assets/images/mobile_recharge.jpg",
-//   ];
-
-//   List<String> titles = [
-//     "My Offer",
-//     "My Offer",
-//     "My Offer",
-//     "My Offer",
-//     "My Offer",
-//   ];
-
-//   late bool _isVisible = true;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SingleChildScrollView(
-//         physics: const BouncingScrollPhysics(),
-//         child: Container(
-//           margin: addMargin(5),
-//           child: Stack(
-//             children: [
-//               Container(
-//                 child: MenusWidget(),
-//               ),
-//               Visibility(
-//                   visible: _isVisible,
-//                   child: Container(
-//                     color: Colors.white,
-//                     height: 50,
-//                     child: Text("Hello"),
-//                   )),
-//               GestureDetector(
-//                 onTap: () {
-//                   _isVisible = false;
-//                 },
-//                 child: Icon(
-//                     _isVisible ? Icons.arrow_upward : Icons.arrow_downward),
-//               )
-//             ],
-//           ),
-//         ));
-//   }
-// }

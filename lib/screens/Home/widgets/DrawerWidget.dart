@@ -40,7 +40,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           child: TextButton(
               onPressed: () {
                 final snackBar = SnackBar(
-                  content: const Text('Yay! A SnackBar!'),
+                  content: Text(title),
                   action: SnackBarAction(
                   
                     label: 'Undo',
