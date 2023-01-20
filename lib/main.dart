@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/screens/AnimatedSplashScreeen/main.dart';
 import 'package:prac_bkash_app/utilities/constants.dart';
 
 import 'screens/Home/app.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: primaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Home(),
+      home: AnimatedSplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -115,7 +115,7 @@ class _BodyWidgetState extends State<BodyWidget> {
                                     ),
                                     itemBuilder: (context, int index) {
                                       return CardWidget(
-                                          title: "Send Money", image: "assets/images/send_money.jpg");
+                                          title: "Send Money", image: "assets/images/card_bill.jpg");
                                     }))
                           ],
                         ),
