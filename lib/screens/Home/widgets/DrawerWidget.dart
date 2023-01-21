@@ -50,6 +50,12 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   ),
                 );
 
+                 Navigator.of(context).pop(
+                  MaterialPageRoute(
+                    builder: (context) => Home(),
+                  ),
+                );
+
                 // Find the ScaffoldMessenger in the widget tree
                 // and use it to show a SnackBar.
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
