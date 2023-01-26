@@ -1,35 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/components/Body/bannerWidget.dart';
-import 'package:prac_bkash_app/screens/HomeScreen/components/Body/crouselWidget.dart';
+import 'package:prac_bkash_app/widgets/crouselWidget.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/components/Body/menusWidget.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/components/Body/myBkashWidget.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/components/Body/offerWidget.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/components/Body/suggestionWidget.dart';
-import 'package:prac_bkash_app/utilities/constants.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
-import '../../../widgets/card.dart';
+import 'Body/moreService.dart';
 
 class BodyWidget extends StatelessWidget {
-  BodyWidget({
+  const BodyWidget({
     Key? key,
   }) : super(key: key);
 
-  List<String> images = [
-    "assets/images/mobile_recharge.jpg",
-    "assets/images/mobile_recharge.jpg",
-    "assets/images/mobile_recharge.jpg",
-    "assets/images/mobile_recharge.jpg",
-    "assets/images/mobile_recharge.jpg",
-  ];
-
-  List<String> titles = [
-    "My Offer",
-    "My Offer",
-    "My Offer",
-    "My Offer",
-    "My Offer",
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,47 +26,18 @@ class BodyWidget extends StatelessWidget {
                   border:
                       Border.all(color: const Color.fromARGB(255, 240, 233, 233))),
               child: Column(
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        padding: addPadding(5),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: const Color.fromARGB(255, 238, 233, 233))),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text("Suggestions"),
-                            GestureDetector(
-                              onTap: () {
-                               
-                              },
-                              child: const Text("See More",style: TextStyle(color: primaryColor),),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: const Color.fromARGB(255, 240, 233, 233))),
-                        child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                for (int i = 0; i < images.length; i++)
-                                  CardWidget(
-                                    image: images[i],
-                                    title: titles[i],
-                                  )
-                              ],
-                            )),
-                      )
-                    ],
-                  ),
+                children: const [
+                  MenusWidget(),
+                  MyBkashWidget(),
+                  CrouselWidgets(),
+                  SuggestionWidget(),
+                  OfferWidget(),
+                  MoreServices(),
+                  BannerWidget()
                 ],
               ),
-            )));
+            )
+            )
+            );
   }
 }

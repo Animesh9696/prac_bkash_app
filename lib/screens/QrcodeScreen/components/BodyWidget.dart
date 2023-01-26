@@ -1,4 +1,7 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/constants.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 class BodyWidget extends StatelessWidget {
@@ -6,44 +9,84 @@ class BodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: addMargin(15),
-      height: double.infinity,
-      width: double.infinity,
-      color: Colors.white,
-      child: Card(
-        elevation: 15,
-        child: Container(
-          child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-                height: 400,
-                width: 400,
-                child: Image.asset("assets/images/qr_code.png")),
-            
-            addVerticalSpace(5.0),
-            Container(
-              width: 170,
-              padding: addPadding(8.0),
-              decoration: BoxDecoration(
-                color: Colors.pink,
-                borderRadius: BorderRadius.circular(15)
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.download,color: Colors.white,),
-                  addHorizontalSpace(5.0),
-                  Text("Download")
-                ],
-              ),
-            )
-          ],
-              ),
-        ),
-      )
+    return SingleChildScrollView(
+      child: Container(
+        height: 780,
+          margin: addMargin(10),
+          color: Colors.white,
+          child: Card(
+            elevation: 15,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/images/qr_code.png",
+                  fit: BoxFit.contain,
+                  width: 400,
+                ),
+                addVerticalSpace(5.0),
+                Container(
+                  alignment: Alignment.center,
+                  child: const Text(
+                    "Show this QR code to anyone to receive",
+                    style: TextStyle(color: primaryColor,fontSize: 15),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  child: const Text(
+                    "money easily",
+                    style: TextStyle(color: primaryColor,fontSize: 15),
+                  ),
+                ),
+                addVerticalSpace(35.0),
+                Container(
+                  margin: const EdgeInsets.only(left: 15, right: 15),
+                  padding: const EdgeInsets.only(left: 15, right: 15,top: 15,bottom: 15),
+                  decoration: BoxDecoration(
+                      color: primaryColor,
+                      borderRadius: BorderRadius.circular(35)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.download,
+                        color: Colors.white,
+                        size: 35,
+                      ),
+                      addHorizontalSpace(10.0),
+                      const Text("Download",style: TextStyle(
+                        color: Colors.white
+                      ),)
+                    ],
+                  ),
+                ),
+                addVerticalSpace(20),
+                Container(
+                  margin: const EdgeInsets.only(left: 15, right: 15),
+                  padding: const EdgeInsets.only(left: 15, right: 15,top: 15,bottom: 15),
+                  decoration: BoxDecoration(
+                      color: primaryColor,
+                      borderRadius: BorderRadius.circular(35)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.share,
+                        color: Colors.white,
+                        size: 35,
+                      ),
+                      addHorizontalSpace(10.0),
+                      const Text("Share QR code",style: TextStyle(
+                        color: Colors.white
+                      ),)
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )),
     );
   }
 }

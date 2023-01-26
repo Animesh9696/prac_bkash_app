@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/screens/Home/widgets/DrawerWidget.dart';
+import 'package:prac_bkash_app/widgets/DrawerWidget.dart';
 
 import '../InboxScreen/components/AppBarWidget.dart';
 import '../InboxScreen/components/BodyWidget.dart';
@@ -9,7 +9,7 @@ const InboxScreen({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context){
-    return SafeArea(
+    return const SafeArea(
         child: Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
@@ -17,7 +17,7 @@ const InboxScreen({ Key? key }) : super(key: key);
         child: AppBarWidget(),
       ),
       body: BodyWidget(),
-      endDrawer: DrawerWidget(),
+      endDrawer: SafeArea(child: DrawerWidget()),
     ));
   }
 }

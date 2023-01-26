@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../widgets/menuwidget.dart';
 
-class OtherOffersWidget extends StatelessWidget {
-  const OtherOffersWidget({Key? key}) : super(key: key);
+class MoreServices extends StatelessWidget {
+  const MoreServices({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.all(12.0),
-      margin: EdgeInsets.only(bottom: 12.0),
       child: Column(
         children: [
           Row(

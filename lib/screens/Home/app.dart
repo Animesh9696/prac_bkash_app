@@ -109,11 +109,7 @@ class _AppState extends State<Home> {
           ),
           backgroundColor: Colors.white,
           onPressed: () {
-            // Navigator.of(context).push(
-            //       MaterialPageRoute(
-            //         builder: (context) => QrScannerScreen(),
-            //       ),
-            //     );
+           
           }),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,

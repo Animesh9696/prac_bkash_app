@@ -25,7 +25,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 height: 50,
                 child: IconButton(
                   iconSize: 50,
@@ -35,24 +35,24 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => QrCodeScreen(),
+                        builder: (context) => const QrCodeScreen(),
                       ),
                     );
                   },
                 ),
               ),
-              SizedBox(width: 14.0),
+              const SizedBox(width: 14.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 8.0),
-                  Text('Animesh Kumar',
+                  const SizedBox(height: 8.0),
+                  const Text('Animesh Kumar',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,
                           fontWeight: FontWeight.w400,
                           letterSpacing: 1.0)),
-                  SizedBox(height: 6.0),
+                  const SizedBox(height: 6.0),
                   InkWell(
                     onTap: changeState,
                     child: Container(
@@ -66,21 +66,24 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                         children: [
                           AnimatedOpacity(
                             opacity: _isBalanceShow ? 1 : 0,
-                            duration: Duration(milliseconds: 500),
-                            child: Text(
+                            duration: const Duration(milliseconds: 500),
+                            child: const Text(
                               "Tk 2000",
                               style: TextStyle(fontSize: 20),
                             ),
                           ),
                           AnimatedOpacity(
                             opacity: _isBalance ? 1 : 0,
-                            duration: Duration(milliseconds: 300),
-                            child: Text(
+                            duration: const Duration(milliseconds: 300),
+                            child: const Text(
                               "Show",
                               style: TextStyle(fontSize: 20),
                             ),
                           ),
                           AnimatedPositioned(
+                            duration: const Duration(milliseconds: 100),
+                            left: _isAnimation == false ? 5 : 135,
+                            curve: Curves.fastOutSlowIn,
                             child: Container(
                               height: 20,
                               width: 20,
@@ -89,15 +92,12 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                                 color: Colors.pink,
                                 borderRadius: BorderRadius.circular(15),
                               ),
-                              child: Text(
+                              child: const Text(
                                 "",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 17),
                               ),
                             ),
-                            duration: Duration(milliseconds: 100),
-                            left: _isAnimation == false ? 5 : 135,
-                            curve: Curves.fastOutSlowIn,
                           )
                         ],
                       ),
@@ -116,10 +116,8 @@ class _AppBarWidgetState extends State<AppBarWidget> {
               // Scaffold.of(context).openEndDrawer();
             },
             child: Padding(
-              padding: const EdgeInsets.only(top: 12.0, right: 10.0),
-              child: Container(
-                  width: 50,
-                  height: 50,
+              padding: const EdgeInsets.only(top: 10,right: 7),
+              child: SizedBox(
                   child: Image.asset('assets/images/fly.png')),
             ),
           );
@@ -130,15 +128,12 @@ class _AppBarWidgetState extends State<AppBarWidget> {
               Scaffold.of(context).openEndDrawer();
             },
             child: Padding(
-              padding: const EdgeInsets.only(top: 12.0, right: 10.0),
-              child: Container(
-                  width: 50,
-                  height: 50,
+              padding: const EdgeInsets.only(top: 10, right: 10.0),
+              child: SizedBox(
                   child: Image.asset('assets/images/fly.png')),
             ),
           );
         }),
-        
       ],
     );
   }
@@ -150,28 +145,28 @@ class _AppBarWidgetState extends State<AppBarWidget> {
     setState(() {});
 
     await Future.delayed(
-        Duration(milliseconds: 800),
+        const Duration(milliseconds: 800),
         () => {
               setState(
                 () => _isBalanceShow = true,
               )
             });
     await Future.delayed(
-        Duration(milliseconds: 800),
+        const Duration(milliseconds: 800),
         () => {
               setState(
                 () => _isBalanceShow = false,
               )
             });
     await Future.delayed(
-        Duration(milliseconds: 300),
+        const Duration(milliseconds: 300),
         () => {
               setState(
                 () => _isAnimation = false,
               )
             });
     await Future.delayed(
-        Duration(milliseconds: 200),
+        const Duration(milliseconds: 200),
         () => {
               setState(
                 () => _isBalance = true,

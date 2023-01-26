@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/screens/Home/app.dart';
+import 'package:prac_bkash_app/utilities/constants.dart';
 
 class AppBarWidget extends StatelessWidget {
   const AppBarWidget({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.pink,
+      color: primaryColor,
       width: double.infinity,
       height: 55,
       child: Row(
@@ -28,7 +29,7 @@ class AppBarWidget extends StatelessWidget {
                 child: Container(
                     width: 50,
                     height: 50,
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_back,
                       color: Colors.white,
                     )),

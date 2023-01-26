@@ -9,8 +9,6 @@ class MenusWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.all(12.0),
-      margin: EdgeInsets.only(bottom: 12.0),
       child: Column(
         children: [
           Row(
