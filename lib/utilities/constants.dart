@@ -8,3 +8,6 @@ const primaryColor = Colors.pink;
 
 const appName = "Bkash";
 
+//sample images location
+
+const sampleImage = "assets/images/cash_out.jpg";

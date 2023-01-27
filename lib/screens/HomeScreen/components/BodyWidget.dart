@@ -10,10 +10,9 @@ import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 import 'Body/moreService.dart';
 
 class BodyWidget extends StatelessWidget {
-  const BodyWidget({
+  BodyWidget({
     Key? key,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
@@ -23,21 +22,19 @@ class BodyWidget extends StatelessWidget {
             margin: addMargin(5),
             child: Container(
               decoration: BoxDecoration(
-                  border:
-                      Border.all(color: const Color.fromARGB(255, 240, 233, 233))),
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 240, 233, 233))),
               child: Column(
-                children: const [
+                children: [
                   MenusWidget(),
                   MyBkashWidget(),
                   CrouselWidgets(),
                   SuggestionWidget(),
                   OfferWidget(),
                   MoreServices(),
-                  BannerWidget()
+                  BannerWidget(),
                 ],
               ),
-            )
-            )
-            );
+            )));
   }
 }
