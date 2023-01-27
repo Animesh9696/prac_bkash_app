@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../../QrcodeScreen/app.dart';
 
@@ -41,7 +42,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                   },
                 ),
               ),
-              const SizedBox(width: 14.0),
+              addVerticalSpace(14),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -52,7 +53,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                           fontSize: 18.0,
                           fontWeight: FontWeight.w400,
                           letterSpacing: 1.0)),
-                  const SizedBox(height: 6.0),
+                  addVerticalSpace(6),
                   InkWell(
                     onTap: changeState,
                     child: Container(
@@ -116,9 +117,8 @@ class _AppBarWidgetState extends State<AppBarWidget> {
               // Scaffold.of(context).openEndDrawer();
             },
             child: Padding(
-              padding: const EdgeInsets.only(top: 10,right: 7),
-              child: SizedBox(
-                  child: Image.asset('assets/images/fly.png')),
+              padding: const EdgeInsets.only(top: 10, right: 7),
+              child: SizedBox(child: Image.asset('assets/images/fly.png')),
             ),
           );
         }),
@@ -129,8 +129,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 10, right: 10.0),
-              child: SizedBox(
-                  child: Image.asset('assets/images/fly.png')),
+              child: SizedBox(child: Image.asset('assets/images/fly.png')),
             ),
           );
         }),
@@ -145,7 +144,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
     setState(() {});
 
     await Future.delayed(
-        const Duration(milliseconds: 800),
+        const Duration(seconds: 1),
         () => {
               setState(
                 () => _isBalanceShow = true,

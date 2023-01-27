@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../../../../widgets/menuwidget.dart';
 
@@ -8,35 +9,58 @@ class MoreServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Row(
-            children: [
-              MenuWidget(
-                  title: 'Send Money', image: 'assets/images/send_money.jpg'),
-              MenuWidget(
-                  title: 'Recharge',
-                  image: 'assets/images/mobile_recharge.jpg'),
-              MenuWidget(
-                  title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
-              MenuWidget(
-                  title: 'Make Payment',
-                  image: 'assets/images/make_payment.jpg'),
-            ],
-          ),
-          SizedBox(height: 8.0),
-          Row(
-            children: [
-              MenuWidget(
-                  title: 'Add Money', image: 'assets/images/add_money.jpg'),
-              MenuWidget(
-                  title: 'Pay Bill', image: 'assets/images/pay_bill.jpg'),
-              MenuWidget(title: 'Tickets', image: 'assets/images/tickets.jpg'),
-            ],
-          ),
-        ],
-      ),
-    );
+        margin: EdgeInsets.only(top: 5, bottom: 5),
+        color: Colors.white,
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 2, left: 5,bottom: 2),
+              decoration: BoxDecoration(
+                  border: Border.all(
+                      width: 1, color: Color.fromARGB(255, 230, 224, 224))),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [Text("More Service")],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 2, left: 5),
+              decoration: BoxDecoration(
+                  border: Border.all(
+                      width: 1, color: Color.fromARGB(255, 230, 224, 224))),
+              child: Column(
+                children: [
+                  Row(
+                    children: const [
+                      MenuWidget(
+                          title: 'Send Money',
+                          image: 'assets/images/send_money.jpg'),
+                      MenuWidget(
+                          title: 'Recharge',
+                          image: 'assets/images/mobile_recharge.jpg'),
+                      MenuWidget(
+                          title: 'Cash Out',
+                          image: 'assets/images/cash_out.jpg'),
+                      MenuWidget(
+                          title: 'Make Payment',
+                          image: 'assets/images/make_payment.jpg'),
+                    ],
+                  ),
+                  addVerticalSpace(8),
+                  Row(
+                    children: const [
+                      MenuWidget(
+                          title: 'Add Money',
+                          image: 'assets/images/add_money.jpg'),
+                      MenuWidget(
+                          title: 'Pay Bill',
+                          image: 'assets/images/pay_bill.jpg'),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }
