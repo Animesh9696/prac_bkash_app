@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 class CrouselWidgets extends StatefulWidget {
   const CrouselWidgets({Key? key}) : super(key: key);
@@ -13,21 +14,19 @@ class _CrouselWidgetsState extends State<CrouselWidgets> {
   List<String> images = [
     "assets/images/banner.jpg",
     "assets/images/banner.jpg",
-    "assets/images/banner.jpg",
-    "assets/images/banner.jpg"
   ];
 
   int currentIndex = 0;
   int _currentPage = 0;
   late Timer _timer;
-  PageController _pageController = PageController(
+  final PageController _pageController = PageController(
     initialPage: 0,
   );
 
   @override
   void initState() {
     super.initState();
-    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
       if (_currentPage < images.length) {
         _currentPage++;
       } else {
@@ -36,7 +35,7 @@ class _CrouselWidgetsState extends State<CrouselWidgets> {
 
       _pageController.animateToPage(
         _currentPage,
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
       );
     });
@@ -51,13 +50,16 @@ class _CrouselWidgetsState extends State<CrouselWidgets> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(top: 10,bottom: 10,left: 1,right: 1),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(45)),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
             height: 100,
             width: double.infinity,
             child: PageView.builder(
-              pageSnapping: false,
+                pageSnapping: false,
                 scrollDirection: Axis.horizontal,
                 controller: _pageController,
                 onPageChanged: (index) {
@@ -67,26 +69,21 @@ class _CrouselWidgetsState extends State<CrouselWidgets> {
                 },
                 itemCount: images.length,
                 itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 13),
-                    child: SizedBox(
-                      height: 100,
-                      width: double.infinity,
-                      child: Image.asset(
-                        images[index % images.length],
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                  return Image.asset(
+                    images[index % images.length],
+                    fit: BoxFit.cover,
                   );
                 }),
           ),
+          addVerticalSpace(7),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               for (var i = 0; i < images.length; i++)
                 buildIndicator(currentIndex == i)
             ],
-          )
+          ),
+          addVerticalSpace(5),
         ],
       ),
     );
@@ -94,10 +91,12 @@ class _CrouselWidgetsState extends State<CrouselWidgets> {
 
   Widget buildIndicator(bool isSelected) {
     return Container(
-      height: isSelected ? 12 : 8,
-      width: isSelected ? 12 : 8,
+      margin: const EdgeInsets.only(right: 3,left: 3),
+      height: isSelected ? 8 : 8,
+      width: isSelected ? 8 : 8,
       decoration: BoxDecoration(
-          shape: BoxShape.circle, color: isSelected ? Colors.red : Colors.grey),
+          shape: BoxShape.circle,
+          color: isSelected ? Colors.pink : Colors.grey),
     );
   }
 }

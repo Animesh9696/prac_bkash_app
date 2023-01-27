@@ -103,6 +103,7 @@ class _AppState extends State<Home> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        clipBehavior: Clip.none,
           child: Icon(
             Icons.qr_code_scanner,
             color: Colors.black,
