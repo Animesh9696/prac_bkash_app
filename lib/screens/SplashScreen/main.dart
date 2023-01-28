@@ -1,4 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/constants.dart';
+
+import '../LoginScreen/app.dart';
 
 class SpalshScreen extends StatefulWidget {
   const SpalshScreen({Key? key}) : super(key: key);
@@ -9,12 +14,22 @@ class SpalshScreen extends StatefulWidget {
 
 class _SpalshScreenState extends State<SpalshScreen> {
   @override
+  void initState() {
+    super.initState();
+    Timer(
+        const Duration(seconds: 5),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => const LoginScreen())));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashScreen'),
+      backgroundColor: primaryColor,
+      body: Container(
+        alignment: Alignment.center,
+        child: Image.asset(sampleImagepng),
       ),
-      body: Container(),
     );
   }
 }
