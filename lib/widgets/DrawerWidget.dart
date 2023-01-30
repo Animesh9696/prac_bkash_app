@@ -92,6 +92,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                             ),
                           );
                           final snackBar = SnackBar(
+                            behavior: SnackBarBehavior.floating,
                             content: Text(
                                 "You Clicke ${draweritemtitlelist[index]}"),
                             action: SnackBarAction(

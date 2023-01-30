@@ -12,10 +12,6 @@ class LoginScreen extends StatelessWidget {
     return const SafeArea(
         child: Scaffold(
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(82.0),
-        child: AppBarWidget(),
-      ),
       body: BodyWidget(),
     ));
   }
