@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
-import '../screens/Home/app.dart';
+import '../screens/HomeScreen/HomeScreen.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);

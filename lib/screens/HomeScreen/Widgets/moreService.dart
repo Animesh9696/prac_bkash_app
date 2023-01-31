@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
-import '../../../../widgets/menuwidget.dart';
+import '../../../../widgets/MenuWidget.dart';
 
 class MoreServices extends StatelessWidget {
   const MoreServices({Key? key}) : super(key: key);

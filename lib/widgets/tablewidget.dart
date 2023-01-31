@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utilities/constants.dart';
 import '../utilities/spacingWidget.dart';
-import 'card.dart';
+import 'CardWidget.dart';
 
 class Tablewidget extends StatelessWidget {
   const Tablewidget(

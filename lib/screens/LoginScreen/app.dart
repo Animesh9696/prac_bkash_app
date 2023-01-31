@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 //importing local components
-import 'components/AppBarWidget.dart';
-import 'components/BodyWidget.dart';
+import 'Widgets/AppBarWidget.dart';
+import 'Widgets/BodyWidget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

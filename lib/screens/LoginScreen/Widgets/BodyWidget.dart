@@ -2,11 +2,11 @@ import 'dart:ffi';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/screens/Home/app.dart';
+import 'package:prac_bkash_app/screens/HomeScreen/HomeScreen.dart';
 import 'package:prac_bkash_app/utilities/constants.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
-import '../../../widgets/keyboard.dart';
+import '../../../widgets/KeyboardWidget.dart';
 
 class BodyWidget extends StatefulWidget {
   const BodyWidget({Key? key}) : super(key: key);
