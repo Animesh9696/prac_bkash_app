@@ -41,7 +41,7 @@ class AppBarWidget extends StatelessWidget {
             margin: const EdgeInsets.only(right: 50),
             alignment: Alignment.center,
             child: const Text(
-              "Inbox",
+              "QR Code",
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
           ))

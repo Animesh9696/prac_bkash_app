@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../../../../widgets/MenuWidget.dart';
 
@@ -10,14 +11,14 @@ class MenusWidget extends StatefulWidget {
 }
 
 class _MenusWidgetState extends State<MenusWidget> {
-  double size = 350;
+  double size = 330;
   double t_margin = 3;
   bool visible = false;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromRGBO(255, 255, 255, 1),
+      color: const Color.fromRGBO(255, 255, 255, 1),
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -27,45 +28,48 @@ class _MenusWidgetState extends State<MenusWidget> {
               children: [
                 Row(
                   children: [
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Send Money',
                         image: 'assets/images/send_money.jpg'),
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Recharge',
                         image: 'assets/images/mobile_recharge.jpg'),
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Make Payment',
                         image: 'assets/images/make_payment.jpg'),
                   ],
                 ),
                 Row(
+                  // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Send Money',
                         image: 'assets/images/send_money.jpg'),
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Recharge',
                         image: 'assets/images/mobile_recharge.jpg'),
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Make Payment',
                         image: 'assets/images/make_payment.jpg'),
                   ],
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 Row(
+                  // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Add Money',
                         image: 'assets/images/add_money.jpg'),
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Pay Bill', image: 'assets/images/pay_bill.jpg'),
-                    MenuWidget(
+                    const MenuWidget(
                         title: 'Tickets', image: 'assets/images/tickets.jpg'),
-                    MenuWidget(title: 'More', image: 'assets/images/more.jpg'),
+                    const MenuWidget(
+                        title: 'More', image: 'assets/images/more.jpg'),
                   ],
                 ),
               ],
@@ -95,30 +99,39 @@ class _MenusWidgetState extends State<MenusWidget> {
                     if (visible) {
                       visible = false;
                       size = 350;
-                      t_margin = 3;
+                      t_margin = 8;
                     } else {
                       visible = true;
                       size = 310;
-                      t_margin = 35;
+                      t_margin = 45;
                     }
                   });
                 },
-                child: Container(
-                    width: 90,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          visible ? "See More" : "Close",
-                          style: TextStyle(color: Colors.pink),
-                        ),
-                        Icon(
-                            visible ? Icons.arrow_downward : Icons.arrow_upward)
-                      ],
+                child: SizedBox(
+                    height: 45,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      color: Colors.white,
+                      elevation: 10,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            visible ? "See More" : "Close",
+                            style: const TextStyle(
+                                color: Colors.pink, fontSize: 12),
+                          ),
+                          Icon(
+                            size: 18,
+                            visible
+                                ? Icons.arrow_downward
+                                : Icons.arrow_upward_sharp,
+                            color: Colors.pink,
+                          )
+                        ],
+                      ),
                     )),
               ),
             ),
