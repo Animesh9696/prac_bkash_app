@@ -35,6 +35,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   mobile_scanner: ^2.1.0
   flutter_progress_hud: ^2.0.2
+  loading_indicator: ^3.1.0
+  loading_animation_widget: ^1.2.0+4
 
 dev_dependencies:
   flutter_test:

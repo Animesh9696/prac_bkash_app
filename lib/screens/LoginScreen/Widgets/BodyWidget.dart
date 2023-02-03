@@ -1,8 +1,12 @@
 import 'dart:ffi';
 
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:loading_indicator/loading_indicator.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/HomeScreen.dart';
+import 'package:prac_bkash_app/screens/HomeScreen/Widgets/app.dart';
 import 'package:prac_bkash_app/utilities/constants.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
@@ -32,7 +36,7 @@ class _BodyWidgetState extends State<BodyWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                margin: EdgeInsets.only(bottom: 10),
+                margin: const EdgeInsets.only(bottom: 10),
                 color: Colors.white,
                 width: double.infinity,
                 height: 55,
@@ -86,8 +90,11 @@ class _BodyWidgetState extends State<BodyWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
+                                height: 50,
+                                width: 50,
                                 margin: const EdgeInsets.only(right: 125),
-                                child: Image.asset(sampleImagepng)),
+                                child:
+                                    Image.asset("assets/images/colorfly.png")),
                             Container(
                                 height: 50,
                                 width: 50,
@@ -152,8 +159,11 @@ class _BodyWidgetState extends State<BodyWidget> {
                         Container(
                           margin: const EdgeInsets.only(left: 40),
                           child: TextField(
+                            obscureText: true,
                             controller: _controller,
                             showCursor: true,
+                            autofocus: true,
+                            obscuringCharacter: "*",
                             readOnly: true,
                             onTap: () {
                               setState(() {
@@ -171,36 +181,70 @@ class _BodyWidgetState extends State<BodyWidget> {
                       ]),
                 ),
               ),
-              Container(
-                  height: 45,
-                  color:
-                      _isLength ? Colors.pink : Color.fromARGB(31, 22, 21, 21),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Home()));
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                            margin: const EdgeInsets.only(left: 20),
-                            child: Text(
-                              "Next",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18),
-                            )),
-                        Container(
-                            margin: const EdgeInsets.only(right: 20),
-                            child: Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                            )),
-                      ],
-                    ),
-                  )),
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                      useRootNavigator: false,
+                      context: context,
+                      builder: (context) {
+                        return Center(
+                          child: LoadingAnimationWidget.staggeredDotsWave(
+                            color: Colors.pink,
+                            size: 50,
+                          ),
+                        );
+                      });
+
+                  Future.delayed(const Duration(seconds: 3), () {
+                    if (password == "12345") {
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(builder: (context) => Home()),
+                          (Route route) => false);
+                    } else {
+                      final snackBar = SnackBar(
+                        content: const Text('Password Incorrect'),
+                        action: SnackBarAction(
+                          label: 'Undo',
+                          onPressed: () {
+                            // Some code to undo the change.
+                          },
+                        ),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      Navigator.of(context, rootNavigator: true).pop();
+
+                      setState(() {
+                        password = "";
+                        _controller.text = "";
+                        _isLength = false;
+                      });
+                    }
+                  });
+                },
+                child: Container(
+                  height: 40,
+                  color: _isLength
+                      ? Colors.pink
+                      : const Color.fromARGB(255, 190, 188, 185),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                          margin: const EdgeInsets.only(left: 20),
+                          child: const Text(
+                            "Next",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          )),
+                      Container(
+                          margin: const EdgeInsets.only(right: 20),
+                          child: const Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                          )),
+                    ],
+                  ),
+                ),
+              ),
               Visibility(
                   visible: _isVisible,
                   child: SizedBox(
@@ -215,8 +259,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "1";
-                                    _controller.text = addStar + "*";
+                                    password = "${password}1";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -224,18 +268,18 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("1",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "2";
-                                    _controller.text = addStar + "*";
+                                    password = "${password}2";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -243,19 +287,18 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("2",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "3";
-                                    addStar = addStar + "*";
-                                    _controller.text = addStar;
+                                    password = "${password}3";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -263,12 +306,12 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("3",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                             ],
                           ),
@@ -281,9 +324,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "4";
-                                    addStar = addStar + "*";
-                                    _controller.text = addStar;
+                                    password = "${password}4";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -291,19 +333,18 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("4",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "5";
-                                    addStar = addStar + "*";
-                                    _controller.text = addStar;
+                                    password = "${password}5";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -311,19 +352,18 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("5",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "6";
-                                    addStar = addStar + "*";
-                                    _controller.text = addStar;
+                                    password = "${password}6";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -331,12 +371,12 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("6",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                             ],
                           ),
@@ -349,9 +389,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "7";
-                                    addStar = addStar + "*";
-                                    _controller.text = addStar;
+                                    password = "${password}7";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -359,19 +398,18 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("7",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "8";
-                                    addStar = addStar + "*";
-                                    _controller.text = addStar;
+                                    password = "${password}8";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -379,19 +417,18 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("8",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "9";
-                                    addStar = addStar + "*";
-                                    _controller.text = addStar;
+                                    password = "${password}9";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -399,12 +436,12 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("9",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                             ],
                           ),
@@ -425,19 +462,18 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
-                                child: const Text("X",
-                                    style: TextStyle(
-                                        fontSize: 25,
-                                        fontWeight: FontWeight.bold)),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(15),
+                                child: const Icon(
+                                  Icons.cancel,
+                                  size: 30,
+                                ),
                               ),
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
-                                    password = password + "0";
-                                    addStar = addStar + "*";
-                                    _controller.text = addStar;
+                                    password = "${password}0";
+                                    _controller.text = password;
                                     if (password.length == 4) {
                                       _isLength = true;
                                       _controller.text = password;
@@ -446,32 +482,30 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 },
                                 color: Colors.white,
                                 textColor: Colors.black,
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(15),
                                 child: const Text("0",
                                     style: TextStyle(
                                         fontSize: 25,
                                         fontWeight: FontWeight.bold)),
-                                shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                               ),
                               MaterialButton(
                                 onPressed: () {
                                   setState(() {
                                     _isVisible = false;
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const Home()));
+                                    arrowVisible = false;
+                                    // Navigator.pushReplacement(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) =>
+                                    //             const Home()));
                                   });
                                 },
-                                color: Colors.white,
+                                color: Colors.pink,
                                 textColor: Colors.black,
-                                child: const Text("Go",
-                                    style: TextStyle(
-                                        fontSize: 25,
-                                        fontWeight: FontWeight.bold)),
                                 shape: const CircleBorder(),
                                 padding: const EdgeInsets.all(15),
+                                child: const Icon(Icons.arrow_forward),
                               ),
                             ],
                           ),

@@ -18,8 +18,8 @@ class _SpalshScreenState extends State<SpalshScreen> {
     super.initState();
     Timer(
         const Duration(seconds: 5),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const LoginScreen())));
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const LoginScreen())));
   }
 
   @override
@@ -28,7 +28,8 @@ class _SpalshScreenState extends State<SpalshScreen> {
       backgroundColor: primaryColor,
       body: Container(
         alignment: Alignment.center,
-        child: Image.asset(sampleImagepng),
+        child: Container(
+            height: 50, width: 50, child: Image.asset(sampleImagepng)),
       ),
     );
   }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/screens/HomeScreen/Widgets/app.dart';
+import 'package:prac_bkash_app/screens/LoginScreen/app.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../screens/HomeScreen/HomeScreen.dart';
@@ -27,19 +29,19 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     'Log Out',
   ];
   var draweritemimagelist = [
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
-    'assets/images/fly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
+    'assets/images/colorfly.png',
   ];
 
   @override
@@ -86,15 +88,23 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     itemBuilder: (BuildContext context, int index) {
                       return GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pop(
-                            MaterialPageRoute(
-                              builder: (context) => Home(),
-                            ),
-                          );
+                          if (index == 12) {
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()),
+                                (Route route) => false);
+                          } else {
+                            Navigator.of(context).pop(
+                              MaterialPageRoute(
+                                builder: (context) => Home(),
+                              ),
+                            );
+                          }
+
                           final snackBar = SnackBar(
                             behavior: SnackBarBehavior.floating,
                             content: Text(
-                                "You Clicke ${draweritemtitlelist[index]}"),
+                                "You Clicked ${draweritemtitlelist[index]}"),
                             action: SnackBarAction(
                               label: 'Undo',
                               onPressed: () {
@@ -107,6 +117,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                         child: ListTile(
                             leading: Image.asset(
                               draweritemimagelist[index],
+                              height: 40,
+                              width: 40,
                             ),
                             trailing: const Text(
                               "*",

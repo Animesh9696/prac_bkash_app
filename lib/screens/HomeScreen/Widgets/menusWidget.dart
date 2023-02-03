@@ -11,9 +11,9 @@ class MenusWidget extends StatefulWidget {
 }
 
 class _MenusWidgetState extends State<MenusWidget> {
-  double size = 330;
-  double t_margin = 3;
-  bool visible = false;
+  double size = 310;
+  double t_margin = 45;
+  bool visible = true;
 
   @override
   Widget build(BuildContext context) {

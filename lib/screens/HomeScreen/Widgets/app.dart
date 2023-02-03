@@ -22,8 +22,8 @@ class _AppState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       endDrawer: const SafeArea(child: DrawerWidget()),
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80.0),
         child: AppBar(
@@ -111,28 +111,39 @@ class _AppState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Container(
-              margin: addMargin(5),
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        color: const Color.fromARGB(255, 240, 233, 233))),
-                child: Column(
-                  children: [
-                    MenusWidget(),
-                    MyBkashWidget(),
-                    CrouselWidgets(),
-                    SuggestionWidget(),
-                    OfferWidget(),
-                    MoreServices(),
-                    BannerWidget(),
-                  ],
-                ),
-              ))),
+      body: bodyWidget(),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
     );
+  }
+}
+
+class bodyWidget extends StatelessWidget {
+  const bodyWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Container(
+            margin: addMargin(5),
+            child: Container(
+              decoration: BoxDecoration(
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 240, 233, 233))),
+              child: Column(
+                children: [
+                  MenusWidget(),
+                  MyBkashWidget(),
+                  CrouselWidgets(),
+                  SuggestionWidget(),
+                  OfferWidget(),
+                  MoreServices(),
+                  BannerWidget(),
+                ],
+              ),
+            )));
   }
 }
