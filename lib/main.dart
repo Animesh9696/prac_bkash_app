@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/screens/test.dart';
 import 'package:prac_bkash_app/utilities/constants.dart';
 
 import 'screens/HomeScreen/HomeScreen.dart';
-import 'screens/SplashScreen/main.dart';
+import 'screens/SplashScreen/SplashScreen.dat.dart';
 
 void main() {
   runApp(MyApp());

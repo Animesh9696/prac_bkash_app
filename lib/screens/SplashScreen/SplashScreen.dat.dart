@@ -28,7 +28,7 @@ class _SpalshScreenState extends State<SpalshScreen> {
       backgroundColor: primaryColor,
       body: Container(
         alignment: Alignment.center,
-        child: Container(
+        child: SizedBox(
             height: 50, width: 50, child: Image.asset(sampleImagepng)),
       ),
     );

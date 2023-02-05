@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:loading_indicator/loading_indicator.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -83,143 +83,117 @@ class _BodyWidgetState extends State<BodyWidget> {
               ),
               Expanded(
                 child: SingleChildScrollView(
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  child: Container(
+                    margin: EdgeInsets.only(left: 35, right: 35),
+                    padding: EdgeInsets.all(5),
+                    child: Column(children: [
+                      Container(
+                        margin: EdgeInsets.only(bottom: 30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
                                 height: 50,
                                 width: 50,
-                                margin: const EdgeInsets.only(right: 125),
                                 child:
                                     Image.asset("assets/images/colorfly.png")),
                             Container(
                                 height: 50,
                                 width: 50,
-                                margin: const EdgeInsets.only(left: 45),
                                 child: Image.asset("assets/images/qr_code.png"))
                           ],
                         ),
-                        Container(
-                          margin: const EdgeInsets.only(right: 15, top: 36),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Log In",
-                                style: TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.bold),
-                              ),
-                              const Text("to your bkash account",
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 30),
+                        child: Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Log In",
                                   style: TextStyle(
-                                      fontSize: 32,
-                                      color:
-                                          Color.fromARGB(255, 156, 154, 148)))
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(right: 155, top: 36),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Account Number",
-                                style: TextStyle(fontSize: 15),
-                              ),
-                              const Text("+88 01987971037",
-                                  style: TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(
-                              top: 25, left: 40, right: 30),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text("bkash PIN",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold)),
-                              const Text("Forgot PIN?",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.pink))
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.only(left: 40),
-                          child: TextField(
-                            obscureText: true,
-                            controller: _controller,
-                            showCursor: true,
-                            autofocus: true,
-                            obscuringCharacter: "*",
-                            readOnly: true,
-                            onTap: () {
-                              setState(() {
-                                if (!_isVisible) {
-                                  _isVisible = true;
-                                  arrowVisible = true;
-                                }
-                              });
-                            },
-                            decoration: const InputDecoration(
-                              hintText: 'Enter Pin',
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                const Text("to your bkash account",
+                                    style: TextStyle(
+                                        fontSize: 32,
+                                        color:
+                                            Color.fromARGB(255, 156, 154, 148)))
+                              ],
                             ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 30),
+                        child: Row(
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Account Number",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                                const Text("+88 01987971037",
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold)),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text("bkash PIN",
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold)),
+                            const Text("Forgot PIN?",
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.pink))
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: TextFormField(
+                          obscureText: true,
+                          controller: _controller,
+                          showCursor: true,
+                          autofocus: true,
+                          // obscuringCharacter: "",
+                          readOnly: true,
+                          onTap: () {
+                            setState(() {
+                              if (!_isVisible) {
+                                _isVisible = true;
+                                arrowVisible = true;
+                              }
+                            });
+                          },
+                          decoration: const InputDecoration(
+                            hintText: 'Enter Pin',
                           ),
-                        )
-                      ]),
+                        ),
+                      ),
+                      addVerticalSpace(50)
+                    ]),
+                  ),
                 ),
               ),
               GestureDetector(
                 onTap: () {
-                  showDialog(
-                      useRootNavigator: false,
-                      context: context,
-                      builder: (context) {
-                        return Center(
-                          child: LoadingAnimationWidget.staggeredDotsWave(
-                            color: Colors.pink,
-                            size: 50,
-                          ),
-                        );
-                      });
-
-                  Future.delayed(const Duration(seconds: 3), () {
-                    if (password == "12345") {
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(builder: (context) => Home()),
-                          (Route route) => false);
-                    } else {
-                      final snackBar = SnackBar(
-                        content: const Text('Password Incorrect'),
-                        action: SnackBarAction(
-                          label: 'Undo',
-                          onPressed: () {
-                            // Some code to undo the change.
-                          },
-                        ),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      Navigator.of(context, rootNavigator: true).pop();
-
-                      setState(() {
-                        password = "";
-                        _controller.text = "";
-                        _isLength = false;
-                      });
-                    }
-                  });
+                  _isLength ? showIndicator() : null;
                 },
                 child: Container(
                   height: 40,
@@ -248,11 +222,11 @@ class _BodyWidgetState extends State<BodyWidget> {
               Visibility(
                   visible: _isVisible,
                   child: SizedBox(
-                    height: 300,
+                    height: 230,
                     child: Column(
                       children: [
                         Container(
-                          margin: const EdgeInsets.only(top: 9),
+                          margin: const EdgeInsets.only(top: 0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -269,7 +243,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("1",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -280,6 +253,9 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   setState(() {
                                     password = "${password}2";
                                     _controller.text = password;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: _controller.text.length));
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -288,7 +264,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("2",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -299,6 +274,9 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   setState(() {
                                     password = "${password}3";
                                     _controller.text = password;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: _controller.text.length));
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -307,7 +285,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("3",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -326,6 +303,9 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   setState(() {
                                     password = "${password}4";
                                     _controller.text = password;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: _controller.text.length));
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -334,7 +314,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("4",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -345,6 +324,9 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   setState(() {
                                     password = "${password}5";
                                     _controller.text = password;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: _controller.text.length));
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -353,7 +335,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("5",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -364,6 +345,9 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   setState(() {
                                     password = "${password}6";
                                     _controller.text = password;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: _controller.text.length));
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -372,7 +356,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("6",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -391,6 +374,9 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   setState(() {
                                     password = "${password}7";
                                     _controller.text = password;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: _controller.text.length));
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -399,7 +385,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("7",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -410,6 +395,9 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   setState(() {
                                     password = "${password}8";
                                     _controller.text = password;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: _controller.text.length));
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -418,7 +406,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("8",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -429,6 +416,9 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   setState(() {
                                     password = "${password}9";
                                     _controller.text = password;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: _controller.text.length));
                                     if (password.length == 4) {
                                       _isLength = true;
                                     }
@@ -437,7 +427,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("9",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -463,7 +452,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Icon(
                                   Icons.cancel,
                                   size: 30,
@@ -474,6 +462,9 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   setState(() {
                                     password = "${password}0";
                                     _controller.text = password;
+                                    _controller.selection =
+                                        TextSelection.fromPosition(TextPosition(
+                                            offset: _controller.text.length));
                                     if (password.length == 4) {
                                       _isLength = true;
                                       _controller.text = password;
@@ -483,7 +474,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.white,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Text("0",
                                     style: TextStyle(
                                         fontSize: 25,
@@ -504,7 +494,6 @@ class _BodyWidgetState extends State<BodyWidget> {
                                 color: Colors.pink,
                                 textColor: Colors.black,
                                 shape: const CircleBorder(),
-                                padding: const EdgeInsets.all(15),
                                 child: const Icon(Icons.arrow_forward),
                               ),
                             ],
@@ -525,5 +514,55 @@ class _BodyWidgetState extends State<BodyWidget> {
           });
           return false;
         });
+  }
+
+  showIndicator() {
+    showDialog(
+        barrierDismissible: false,
+        useRootNavigator: false,
+        context: context,
+        builder: (context) {
+          return Center(
+            child: LoadingAnimationWidget.staggeredDotsWave(
+              color: Colors.pink,
+              size: 50,
+            ),
+          );
+        });
+
+    Future.delayed(const Duration(seconds: 3), () {
+      if (password == "12345") {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => Home()),
+            (Route route) => false);
+      } else {
+        // Fluttertoast.showToast(
+        //     msg: "Password Error!",
+        //     toastLength: Toast.LENGTH_SHORT,
+        //     gravity: ToastGravity.TOP,
+        //     timeInSecForIosWeb: 1,
+        //     backgroundColor: Colors.red,
+        //     textColor: Colors.white,
+        //     fontSize: 16.0);
+        final snackBar = SnackBar(
+          backgroundColor: Colors.red,
+          content: const Text('Password Incorrect !'),
+          action: SnackBarAction(
+            label: 'Undo',
+            onPressed: () {
+              // Some code to undo the change.
+            },
+          ),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        Navigator.of(context, rootNavigator: true).pop();
+
+        setState(() {
+          password = "";
+          _controller.text = "";
+          _isLength = false;
+        });
+      }
+    });
   }
 }
