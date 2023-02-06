@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/screens/HomeScreen/Widgets/app.dart';
-import 'package:prac_bkash_app/screens/LoginScreen/app.dart';
+import 'package:prac_bkash_app/screens/HomeScreen/Widgets/Home.dart';
+import 'package:prac_bkash_app/screens/LoginScreen/LoginScreen.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../screens/HomeScreen/HomeScreen.dart';

@@ -12,6 +12,7 @@ const appName = "Bkash";
 
 const sampleImage = "assets/images/cash_out.jpg";
 const sampleImagepng = "assets/images/fly.png";
+const bannerImage = "assets/images/banner.jpg";
 
 //sample title array
 

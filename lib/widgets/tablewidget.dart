@@ -19,7 +19,7 @@ class Tablewidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 5,bottom: 5),
+      padding: const EdgeInsets.only(top: 5,bottom: 5),
       child: Column(
         children: [
           Container(

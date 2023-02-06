@@ -15,10 +15,10 @@ class BodyWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(
+            children: const [
+              SizedBox(
                   height: 400, width: 400, child: Icon(Icons.notifications)),
-              const SizedBox(
+              SizedBox(
                 height: 5,
               ),
             ],

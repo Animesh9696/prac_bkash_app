@@ -1,55 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:prac_bkash_app/screens/HomeScreen/Widgets/app.dart';
-import 'package:prac_bkash_app/screens/InboxScreen/app.dart';
+import 'package:prac_bkash_app/screens/HomeScreen/Widgets/Home.dart';
+import 'package:prac_bkash_app/screens/InboxScreen/InboxScreen.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _AppState createState() => _AppState();
 }
 
 class _AppState extends State<Home> {
-
   int _currentTab = 0; // to keep track of active tab index
   final List<Widget> screens = [
-    HomeScreen(),
-    InboxScreen(),
+    const HomeScreen(),
+    const InboxScreen(),
   ];
 
-  Widget _currentScreen = HomeScreen();
+  Widget _currentScreen = const HomeScreen();
 
   @override
   Widget build(BuildContext context) {
+    double bottomappbarHeight = 70;
+    double notchMargin = 10;
+    double materialButton = 40;
+    double buttoniconSize = 35;
+
     return Scaffold(
       body: _currentScreen,
-      bottomNavigationBar: Container(
-        height: 70,
+      bottomNavigationBar: SizedBox(
+        height: bottomappbarHeight,
         child: BottomAppBar(
-          notchMargin: 10,
+          notchMargin: notchMargin,
           shape: const CircularNotchedRectangle(),
           color: Colors.white,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               MaterialButton(
-                minWidth: 40,
+                minWidth: materialButton,
                 onPressed: () {
                   setState(() {
                     _currentScreen =
-                        HomeScreen(); // if user taps on this dashboard tab will be active
+                        const HomeScreen(); // if user taps on this dashboard tab will be active
                     _currentTab = 0;
                   });
                 },
                 child: Container(
-                  margin: const EdgeInsets.only(left: 25.0),
+                  margin: addMarginLeft(25),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Icon(
                         Icons.home,
-                        size: 35,
+                        size: buttoniconSize,
                         color: _currentTab == 0 ? Colors.pink : Colors.grey,
                       ),
                       Text(
@@ -70,11 +75,11 @@ class _AppState extends State<Home> {
                 ),
               ),
               MaterialButton(
-                minWidth: 40,
+                minWidth: materialButton,
                 onPressed: () {
                   setState(() {
                     _currentScreen =
-                        InboxScreen(); // if user taps on this dashboard tab will be active
+                        const InboxScreen(); // if user taps on this dashboard tab will be active
                     _currentTab = 1;
                   });
                 },
@@ -85,7 +90,7 @@ class _AppState extends State<Home> {
                     children: <Widget>[
                       Icon(
                         Icons.mail_rounded,
-                        size: 35,
+                        size: buttoniconSize,
                         color: _currentTab == 1 ? Colors.pink : Colors.grey,
                       ),
                       Text(
@@ -103,15 +108,13 @@ class _AppState extends State<Home> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        clipBehavior: Clip.none,
-          child: Icon(
+          clipBehavior: Clip.none,
+          backgroundColor: Colors.white,
+          onPressed: () {},
+          child: const Icon(
             Icons.qr_code_scanner,
             color: Colors.black,
-          ),
-          backgroundColor: Colors.white,
-          onPressed: () {
-           
-          }),
+          )),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
     );

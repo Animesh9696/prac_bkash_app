@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/utilities/constants.dart';
 
 import 'screens/HomeScreen/HomeScreen.dart';
-import 'screens/SplashScreen/SplashScreen.dat.dart';
+import 'screens/SplashScreen/SplashScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: primaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SpalshScreen(),
+      home: const SpalshScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

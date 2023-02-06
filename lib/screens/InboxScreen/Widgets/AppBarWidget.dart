@@ -30,7 +30,7 @@ class AppBarWidget extends StatelessWidget {
               },
               child: Padding(
                 padding: const EdgeInsets.only(top: 5.0, right: 10.0),
-                child: Container(
+                child: SizedBox(
                     width: 50,
                     height: 50,
                     child: Image.asset('assets/images/fly.png')),

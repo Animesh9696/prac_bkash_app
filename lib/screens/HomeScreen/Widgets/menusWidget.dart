@@ -12,6 +12,7 @@ class MenusWidget extends StatefulWidget {
 
 class _MenusWidgetState extends State<MenusWidget> {
   double size = 310;
+  // ignore: non_constant_identifier_names
   double t_margin = 45;
   bool visible = true;
 
@@ -27,16 +28,16 @@ class _MenusWidgetState extends State<MenusWidget> {
             child: Column(
               children: [
                 Row(
-                  children: [
-                    const MenuWidget(
+                  children: const [
+                    MenuWidget(
                         title: 'Send Money',
                         image: 'assets/images/send_money.jpg'),
-                    const MenuWidget(
+                    MenuWidget(
                         title: 'Recharge',
                         image: 'assets/images/mobile_recharge.jpg'),
-                    const MenuWidget(
+                    MenuWidget(
                         title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
-                    const MenuWidget(
+                    MenuWidget(
                         title: 'Make Payment',
                         image: 'assets/images/make_payment.jpg'),
                   ],
