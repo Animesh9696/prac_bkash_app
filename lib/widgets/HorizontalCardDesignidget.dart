@@ -1,36 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/models/MyBkashModel.dart';
 
 import '../utilities/constants.dart';
 import '../utilities/spacingWidget.dart';
 import 'CardWidget.dart';
 
-class Tablewidget extends StatelessWidget {
-  const Tablewidget(
-      {Key? key,
-      required this.titleList,
-      required this.topic,
-      required this.imageList})
+class HorizontalCardDesignidget extends StatelessWidget {
+  const HorizontalCardDesignidget(
+      {Key? key, required this.topic, required this.modelList})
       : super(key: key);
 
-  final List<String> titleList;
-  final List<String> imageList;
   final String topic;
+  final List<dynamic> modelList;
 
   @override
   Widget build(BuildContext context) {
+    const data = "See All";
     return Container(
-      padding: const EdgeInsets.only(top: 5,bottom: 5),
+      padding: const EdgeInsets.only(top: 5, bottom: 5),
       child: Column(
         children: [
           Container(
             padding: addPadding(5),
             decoration: BoxDecoration(
-                border:
-                    Border.all(color: const Color.fromARGB(255, 238, 233, 233))),
+                border: Border.all(
+                    color: const Color.fromARGB(255, 238, 233, 233))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(topic),
+                Text(
+                  topic,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black54),
+                ),
                 GestureDetector(
                   onTap: () {
                     showModalBottomSheet(
@@ -74,11 +78,12 @@ class Tablewidget extends StatelessWidget {
                                             const SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 3,
                                         ),
-                                        itemCount: titleList.length,
+                                        itemCount: modelList.length,
                                         itemBuilder: (context, int index) {
                                           return CardWidget(
-                                              title: titleList[index],
-                                              image: imageList[index]);
+                                              title: modelList[index].title,
+                                              image:
+                                                  modelList[index].image_url);
                                         }))
                               ],
                             ),
@@ -86,7 +91,7 @@ class Tablewidget extends StatelessWidget {
                         });
                   },
                   child: const Text(
-                    "See More",
+                    data,
                     style: TextStyle(color: primaryColor),
                   ),
                 )
@@ -95,16 +100,16 @@ class Tablewidget extends StatelessWidget {
           ),
           Container(
             decoration: BoxDecoration(
-                border:
-                    Border.all(color: const Color.fromARGB(255, 240, 233, 233))),
+                border: Border.all(
+                    color: const Color.fromARGB(255, 240, 233, 233))),
             child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     for (int i = 0; i < 5; i++)
                       CardWidget(
-                        image: imageList[i],
-                        title: titleList[i],
+                        image: modelList[i].image_url,
+                        title: modelList[i].title,
                       )
                   ],
                 )),

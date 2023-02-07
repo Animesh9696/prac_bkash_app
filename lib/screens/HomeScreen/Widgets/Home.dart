@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import '../../../utilities/constants.dart';
 import '../../../utilities/spacingWidget.dart';
 import '../../../widgets/CrouselWidget.dart';
+import '../../../widgets/HorizontalBigCardDesignidget.dart';
 import '../../../widgets/ShowBalanceAnimationWidgets.dart';
-import '../../../widgets/tablewidget.dart';
+import '../../../widgets/HorizontalCardDesignidget.dart';
 import '../../QrcodeScreen/app.dart';
 import '../../../widgets/DrawerWidget.dart';
-import '../../../widgets/bannerWidget.dart';
+import '../../../widgets/BannerWidget.dart';
 import 'MenusWidget.dart';
 import 'MoreServices.dart';
 
@@ -64,9 +65,10 @@ class AppBarWidget extends StatelessWidget {
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     const CircleAvatar(
-                        // backgroundImage: NetworkImage(
-                        // "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"),
-                        ),
+                      //handle image exception
+                      backgroundImage: NetworkImage(
+                          "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"),
+                    ),
                     const Icon(
                       Icons.fullscreen,
                       size: 80,
@@ -126,7 +128,6 @@ class AppBarWidget extends StatelessWidget {
   }
 }
 
-
 class BodyWidget extends StatelessWidget {
   const BodyWidget({
     super.key,
@@ -137,7 +138,7 @@ class BodyWidget extends StatelessWidget {
     return SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Container(
-            margin: addMargin(5),
+            padding: addPadding(5),
             child: Container(
               decoration: BoxDecoration(
                   border: Border.all(
@@ -145,21 +146,18 @@ class BodyWidget extends StatelessWidget {
               child: Column(
                 children: [
                   const MenusWidget(),
-                  Tablewidget(
-                    topic: "Mybkash",
-                    titleList: sampletitleList,
-                    imageList: sampleimageList,
+                  HorizontalCardDesignidget(
+                    topic: "My bkash",
+                    modelList: mykashsampleList,
                   ),
                   const CrouselWidgets(),
-                  Tablewidget(
-                    topic: "Suggestion",
-                    titleList: sampletitleList,
-                    imageList: sampleimageList,
+                  HorizontalCardDesignidget(
+                    topic: "Suggestions",
+                    modelList: suggestionsampleList,
                   ),
-                  Tablewidget(
-                    topic: "Offer",
-                    titleList: sampletitleList,
-                    imageList: sampleimageList,
+                  HorizontalBigCardDesignidget(
+                    topic: "Offers",
+                    modelList: offersampleList,
                   ),
                   const MoreServices(),
                   const BannerWidget(

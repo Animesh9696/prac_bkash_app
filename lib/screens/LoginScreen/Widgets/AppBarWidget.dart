@@ -10,7 +10,7 @@ class AppBarWidget extends StatelessWidget {
     return Container(
       color: Colors.white,
       width: double.infinity,
-      height: 55,
+      height: 65,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,

@@ -52,29 +52,24 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(right: 120),
+              margin: const EdgeInsets.only(right: 120),
               padding: addPadding(10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    child: Text(
-                      "bKash Menu",
-                      style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.pink,
-                          fontWeight: FontWeight.bold),
-                    ),
+                  const Text(
+                    "bKash Menu",
+                    style: TextStyle(fontSize: 25, color: Colors.pink),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 20),
-                    padding:
-                        EdgeInsets.only(left: 25, right: 25, top: 5, bottom: 5),
+                    margin: const EdgeInsets.only(top: 20, bottom: 20),
+                    padding: const EdgeInsets.only(
+                        left: 25, right: 25, top: 5, bottom: 5),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.pink, width: 2.0),
                         borderRadius: BorderRadius.circular(25)),
-                    child: Text(
+                    child: const Text(
                       "English",
                       style: TextStyle(fontSize: 15, color: Colors.pink),
                     ),
@@ -91,12 +86,12 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                           if (index == 12) {
                             Navigator.of(context).pushAndRemoveUntil(
                                 MaterialPageRoute(
-                                    builder: (context) => LoginScreen()),
+                                    builder: (context) => const LoginScreen()),
                                 (Route route) => false);
                           } else {
                             Navigator.of(context).pop(
                               MaterialPageRoute(
-                                builder: (context) => Home(),
+                                builder: (context) => const Home(),
                               ),
                             );
                           }

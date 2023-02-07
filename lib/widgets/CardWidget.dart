@@ -15,6 +15,7 @@ class CardWidget extends StatelessWidget {
     return Container(
       width: 110,
       height: 100,
+      
       color: Colors.white,
       child: Column(
         children: [

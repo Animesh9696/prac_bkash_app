@@ -3,6 +3,8 @@ import 'package:prac_bkash_app/screens/HomeScreen/Widgets/Home.dart';
 import 'package:prac_bkash_app/screens/InboxScreen/InboxScreen.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
+import '../QrScannerScreen/QrcodeScreen.dart';
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -110,7 +112,13 @@ class _AppState extends State<Home> {
       floatingActionButton: FloatingActionButton(
           clipBehavior: Clip.none,
           backgroundColor: Colors.white,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => QrcodeScannerScreen(),
+                    ),
+                  );
+          },
           child: const Icon(
             Icons.qr_code_scanner,
             color: Colors.black,

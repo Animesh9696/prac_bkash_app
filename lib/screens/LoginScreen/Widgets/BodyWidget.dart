@@ -15,11 +15,11 @@ class BodyWidget extends StatefulWidget {
 }
 
 class _BodyWidgetState extends State<BodyWidget> {
-
   //You have to keep this "promise", otherwise you will get a runtime error.
 
   bool _isVisible = true;
   bool _isLength = false;
+  bool _isLengthFinished = false;
   String password = "";
   final double hight = 60;
   bool arrowVisible = true;
@@ -81,7 +81,7 @@ class _BodyWidgetState extends State<BodyWidget> {
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
-                  margin: const EdgeInsets.only(left: 35, right: 35),
+                  margin: const EdgeInsets.only(left: 35, right: 35, top: 35),
                   padding: const EdgeInsets.all(5),
                   child: Column(children: [
                     Container(
@@ -131,6 +131,7 @@ class _BodyWidgetState extends State<BodyWidget> {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               const Text(
                                 "Account Number",
@@ -149,6 +150,7 @@ class _BodyWidgetState extends State<BodyWidget> {
                       margin: const EdgeInsets.only(bottom: 0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        // ignore: prefer_const_literals_to_create_immutables
                         children: [
                           const Text("bkash PIN",
                               style: TextStyle(
@@ -162,10 +164,13 @@ class _BodyWidgetState extends State<BodyWidget> {
                       ),
                     ),
                     TextFormField(
+                      style: TextStyle(fontSize: 19),
                       obscureText: true,
                       controller: _controller,
                       showCursor: true,
                       autofocus: true,
+                      maxLength: 5,
+                      obscuringCharacter: '●',
                       readOnly: true,
                       onTap: () {
                         setState(() {
@@ -230,6 +235,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                                   _controller.text = password;
                                   if (password.length == 4) {
                                     _isLength = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
                                   }
                                 });
                               },
@@ -251,6 +258,10 @@ class _BodyWidgetState extends State<BodyWidget> {
                                           offset: _controller.text.length));
                                   if (password.length == 4) {
                                     _isLength = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
                                   }
                                 });
                               },
@@ -272,6 +283,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                                           offset: _controller.text.length));
                                   if (password.length == 4) {
                                     _isLength = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
                                   }
                                 });
                               },
@@ -301,6 +314,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                                           offset: _controller.text.length));
                                   if (password.length == 4) {
                                     _isLength = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
                                   }
                                 });
                               },
@@ -322,6 +337,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                                           offset: _controller.text.length));
                                   if (password.length == 4) {
                                     _isLength = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
                                   }
                                 });
                               },
@@ -343,6 +360,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                                           offset: _controller.text.length));
                                   if (password.length == 4) {
                                     _isLength = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
                                   }
                                 });
                               },
@@ -372,6 +391,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                                           offset: _controller.text.length));
                                   if (password.length == 4) {
                                     _isLength = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
                                   }
                                 });
                               },
@@ -393,6 +414,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                                           offset: _controller.text.length));
                                   if (password.length == 4) {
                                     _isLength = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
                                   }
                                 });
                               },
@@ -414,6 +437,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                                           offset: _controller.text.length));
                                   if (password.length == 4) {
                                     _isLength = true;
+                                  } else if (password.length == 5) {
+                                    _isLengthFinished = true;
                                   }
                                 });
                               },
@@ -523,17 +548,13 @@ class _BodyWidgetState extends State<BodyWidget> {
             MaterialPageRoute(builder: (context) => const Home()),
             (Route route) => false);
       } else {
-        final snackBar = SnackBar(
-          backgroundColor: Colors.red,
-          content: const Text('Password Incorrect !'),
-          action: SnackBarAction(
-            label: 'Undo',
-            onPressed: () {
-              // Some code to undo the change.
-            },
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            duration: Duration(seconds: 5),
+            backgroundColor: Colors.red,
+            content: Text("Please fix the errors in the form"),
           ),
         );
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
         Navigator.of(context, rootNavigator: true).pop();
 
         setState(() {

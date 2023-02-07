@@ -20,7 +20,7 @@ class MoreServices extends StatelessWidget {
                       width: 1, color: const Color.fromARGB(255, 230, 224, 224))),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: const [Text("More Service")],
+                children: const [Text("More Services")],
               ),
             ),
             Container(
