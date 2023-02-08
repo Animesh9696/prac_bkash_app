@@ -6,24 +6,32 @@ import '../models/SuggestionModel.dart';
 
 //Color Section
 
-const primaryColor = Colors.pink;
+//rgba(226,19,110,255)
+const primaryColor1 = Colors.pink;
+const primaryColor2 = Color.fromARGB(255, 226, 19, 110);
+const secondaryColor = Colors.grey;
 
-/// for text color
+/// for text Color
 
-const primaryTextColor = Colors.grey;
-const secondaryTextColor = Colors.black54;
+const primaryTextColor = Colors.black54;
+const secondaryTextColor = Color.fromARGB(255, 124, 123, 123);
 
 //String Section
 
 const appName = "Bkash";
 
-//sample images location
+//avatar image url
+
+const avatarImage =
+    "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50";
+
+//sample images
 
 const sampleImage = "assets/images/cash_out.jpg";
 const sampleImagepng = "assets/images/fly.png";
 const bannerImage = "assets/images/banner.jpg";
 
-//sample title array
+//sample Data array section
 
 List<MyBkashModel> mykashsampleList = [
   MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
@@ -73,7 +81,7 @@ List<OfferModel> offersampleList = [
   OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
 ];
 
-//sample image array
+//sample image array section
 
 List<String> sampleimageList = [
   sampleImage,

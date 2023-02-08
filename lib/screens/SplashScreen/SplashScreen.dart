@@ -25,11 +25,11 @@ class _SpalshScreenState extends State<SpalshScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor,
+      backgroundColor: primaryColor2,
       body: Container(
         alignment: Alignment.center,
-        child: SizedBox(
-            height: 500, width: 500, child: Image.asset(sampleImagepng)),
+        // child: SizedBox(
+        //     height: 500, width: 500, child: Image.asset(sampleImagepng)),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/constants.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../../../../widgets/MenuWidget.dart';
@@ -9,25 +10,34 @@ class MoreServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(top: 5, bottom: 5),
         color: Colors.white,
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.only(top: 2, left: 5,bottom: 2),
               decoration: BoxDecoration(
                   border: Border.all(
-                      width: 1, color: const Color.fromARGB(255, 230, 224, 224))),
+                      width: 1,
+                      color: const Color.fromARGB(255, 230, 224, 224))),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: const [Text("More Services")],
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(left: 5, top: 5, bottom: 5),
+                    child: const Text(
+                      "More Services",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 119, 116, 116)),
+                    ),
+                  )
+                ],
               ),
             ),
             Container(
-              padding: const EdgeInsets.only(top: 2, left: 5),
               decoration: BoxDecoration(
                   border: Border.all(
-                      width: 1, color: const Color.fromARGB(255, 230, 224, 224))),
+                      width: 1,
+                      color: const Color.fromARGB(255, 230, 224, 224))),
               child: Column(
                 children: [
                   Row(
@@ -42,7 +52,7 @@ class MoreServices extends StatelessWidget {
                           title: 'Cash Out',
                           image: 'assets/images/cash_out.jpg'),
                       MenuWidget(
-                          title: 'Make Payment',
+                          title: 'Payment',
                           image: 'assets/images/make_payment.jpg'),
                     ],
                   ),

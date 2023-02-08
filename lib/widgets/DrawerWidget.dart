@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/Widgets/Home.dart';
 import 'package:prac_bkash_app/screens/LoginScreen/LoginScreen.dart';
+import 'package:prac_bkash_app/utilities/constants.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../screens/HomeScreen/HomeScreen.dart';
@@ -47,8 +48,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 300,
         color: Colors.white,
+        width: 300,
         child: Column(
           children: [
             Container(
@@ -109,23 +110,41 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                           );
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
-                        child: ListTile(
-                            leading: Image.asset(
-                              draweritemimagelist[index],
-                              height: 40,
-                              width: 40,
-                            ),
-                            trailing: const Text(
-                              "*",
-                              style:
-                                  TextStyle(color: Colors.pink, fontSize: 25),
-                            ),
-                            title: Text(
-                              draweritemtitlelist[index],
-                              style: const TextStyle(
-                                  fontSize: 18,
-                                  color: Color.fromARGB(255, 31, 29, 29)),
-                            )),
+                        child: Container(
+                          height: 71,
+                          child: Column(
+                            children: [
+                              Container(
+                                color: Colors.white,
+                                height: 70,
+                                child: ListTile(
+                                    leading: Image.asset(
+                                      draweritemimagelist[index],
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                    trailing: const Text(
+                                      "●",
+                                      style: TextStyle(
+                                          color: Colors.pink, fontSize: 25),
+                                    ),
+                                    title: Text(
+                                      draweritemtitlelist[index],
+                                      style: const TextStyle(
+                                          fontSize: 18,
+                                          color: secondaryTextColor,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                              ),
+                              Container(
+                                color: Color.fromARGB(255, 134, 130, 130),
+                                child: const Divider(
+                                  height: 1,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
                       );
                     })),
           ],

@@ -8,7 +8,7 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: primaryColor,
+      color: primaryColor2,
       width: double.infinity,
       height: 55,
       child: Row(

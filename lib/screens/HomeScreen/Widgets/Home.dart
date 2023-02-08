@@ -5,10 +5,10 @@ import '../../../widgets/CrouselWidget.dart';
 import '../../../widgets/HorizontalBigCardDesignidget.dart';
 import '../../../widgets/ShowBalanceAnimationWidgets.dart';
 import '../../../widgets/HorizontalCardDesignidget.dart';
-import '../../QrcodeScreen/app.dart';
+import '../../QrcodeScreen/QrcodeScreen.dart';
 import '../../../widgets/DrawerWidget.dart';
 import '../../../widgets/BannerWidget.dart';
-import 'MenusWidget.dart';
+import 'Menu.dart';
 import 'MoreServices.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -66,8 +66,7 @@ class AppBarWidget extends StatelessWidget {
                   children: [
                     const CircleAvatar(
                       //handle image exception
-                      backgroundImage: NetworkImage(
-                          "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"),
+                      backgroundImage: NetworkImage(avatarImage),
                     ),
                     const Icon(
                       Icons.fullscreen,
@@ -78,18 +77,15 @@ class AppBarWidget extends StatelessWidget {
                 ),
               ),
             ),
-            addVerticalSpace(14),
+            // addVerticalSpace(10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 8.0),
+                const SizedBox(height: 13),
                 const Text('Animesh Kumar',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1.0)),
-                addVerticalSpace(6),
+                        color: Colors.white, fontSize: 16, letterSpacing: 1.0)),
+                addVerticalSpace(3),
                 const ShowBalanceAnimationWidget()
               ],
             ),
@@ -107,7 +103,7 @@ class AppBarWidget extends StatelessWidget {
               child: SizedBox(
                   child: Icon(
                 Icons.account_balance,
-                size: 45,
+                size: 40,
               )),
             ),
           );
@@ -138,14 +134,14 @@ class BodyWidget extends StatelessWidget {
     return SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Container(
-            padding: addPadding(5),
+            padding: addMargin(3),
             child: Container(
               decoration: BoxDecoration(
                   border: Border.all(
                       color: const Color.fromARGB(255, 240, 233, 233))),
               child: Column(
                 children: [
-                  const MenusWidget(),
+                  const Menu(),
                   HorizontalCardDesignidget(
                     topic: "My bkash",
                     modelList: mykashsampleList,

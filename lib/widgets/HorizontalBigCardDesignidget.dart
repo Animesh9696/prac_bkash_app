@@ -29,7 +29,10 @@ class HorizontalBigCardDesignidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(topic),
+                Text(
+                  topic,
+                  style: TextStyle(color: Color.fromARGB(255, 119, 116, 116)),
+                ),
                 GestureDetector(
                   onTap: () {
                     showModalBottomSheet(
@@ -61,7 +64,8 @@ class HorizontalBigCardDesignidget extends StatelessWidget {
                                         },
                                         child: const Text(
                                           "Close",
-                                          style: TextStyle(color: primaryColor),
+                                          style:
+                                              TextStyle(color: primaryColor2),
                                         ),
                                       )
                                     ],
@@ -87,7 +91,7 @@ class HorizontalBigCardDesignidget extends StatelessWidget {
                   },
                   child: const Text(
                     data,
-                    style: TextStyle(color: primaryColor),
+                    style: TextStyle(color: primaryColor2),
                   ),
                 )
               ],

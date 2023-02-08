@@ -66,7 +66,8 @@ class HorizontalCardDesignidget extends StatelessWidget {
                                         },
                                         child: const Text(
                                           "Close",
-                                          style: TextStyle(color: primaryColor),
+                                          style:
+                                              TextStyle(color: primaryColor2),
                                         ),
                                       )
                                     ],
@@ -92,7 +93,7 @@ class HorizontalCardDesignidget extends StatelessWidget {
                   },
                   child: const Text(
                     data,
-                    style: TextStyle(color: primaryColor),
+                    style: TextStyle(color: primaryColor2),
                   ),
                 )
               ],

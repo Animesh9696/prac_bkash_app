@@ -30,14 +30,14 @@ class BodyWidget extends StatelessWidget {
                   alignment: Alignment.center,
                   child: const Text(
                     "Show this QR code to anyone to receive",
-                    style: TextStyle(color: primaryColor,fontSize: 15),
+                    style: TextStyle(color: primaryColor2,fontSize: 15),
                   ),
                 ),
                 Container(
                   alignment: Alignment.center,
                   child: const Text(
                     "money easily",
-                    style: TextStyle(color: primaryColor,fontSize: 15),
+                    style: TextStyle(color: primaryColor2,fontSize: 15),
                   ),
                 ),
                 addVerticalSpace(35.0),
@@ -45,7 +45,7 @@ class BodyWidget extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 15, right: 15),
                   padding: const EdgeInsets.only(left: 15, right: 15,top: 15,bottom: 15),
                   decoration: BoxDecoration(
-                      color: primaryColor,
+                      color: primaryColor2,
                       borderRadius: BorderRadius.circular(35)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +67,7 @@ class BodyWidget extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 15, right: 15),
                   padding: const EdgeInsets.only(left: 15, right: 15,top: 15,bottom: 15),
                   decoration: BoxDecoration(
-                      color: primaryColor,
+                      color: primaryColor2,
                       borderRadius: BorderRadius.circular(35)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

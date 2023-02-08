@@ -72,7 +72,7 @@ class _BodyWidgetState extends State<BodyWidget> {
                     alignment: Alignment.center,
                     child: const Text(
                       "English",
-                      style: TextStyle(color: primaryColor, fontSize: 18),
+                      style: TextStyle(color: primaryColor2, fontSize: 18),
                     ),
                   )
                 ],
@@ -81,8 +81,7 @@ class _BodyWidgetState extends State<BodyWidget> {
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
-                  margin: const EdgeInsets.only(left: 35, right: 35, top: 35),
-                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.only(left: 30, right: 30, top: 35),
                   child: Column(children: [
                     Container(
                       margin: const EdgeInsets.only(bottom: 30),
@@ -116,7 +115,7 @@ class _BodyWidgetState extends State<BodyWidget> {
                               ),
                               const Text("to your bkash account",
                                   style: TextStyle(
-                                      fontSize: 32,
+                                      fontSize: 29,
                                       color:
                                           Color.fromARGB(255, 156, 154, 148)))
                             ],
@@ -220,15 +219,17 @@ class _BodyWidgetState extends State<BodyWidget> {
             Visibility(
                 visible: _isVisible,
                 child: SizedBox(
-                  height: 230,
+                  height: 240,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        margin: const EdgeInsets.only(top: 0),
+                        alignment: Alignment.center,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             MaterialButton(
+                              padding: addPadding(5),
                               onPressed: () {
                                 setState(() {
                                   password = "${password}1";
@@ -514,7 +515,8 @@ class _BodyWidgetState extends State<BodyWidget> {
                       ),
                     ],
                   ),
-                ))
+                )
+                )
           ],
         ),
         onWillPop: () async {

@@ -24,7 +24,7 @@ class InboxScreen extends StatelessWidget {
                 Container(
                   color: Colors.white,
                   height: 50,
-                  child: TabBar(indicatorColor: primaryColor, tabs: [
+                  child: TabBar(indicatorColor: primaryColor2, tabs: [
                     Tab(
                       child: Container(
                         alignment: Alignment.center,

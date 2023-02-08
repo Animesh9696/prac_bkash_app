@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/constants.dart';
 
 class ShowBalanceAnimationWidget extends StatefulWidget {
   const ShowBalanceAnimationWidget({Key? key}) : super(key: key);
@@ -16,56 +17,60 @@ class _ShowBalanceAnimationWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: InkWell(
-        onTap: changeState,
-        child: Container(
-          width: 160,
-          height: 30,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(15)),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              AnimatedOpacity(
-                opacity: _isBalanceShow ? 1 : 0,
-                duration: const Duration(milliseconds: 1000),
-                child: Container(
-                  margin: EdgeInsets.only(top: 3, right: 3),
-                  child: const Text(
-                    "৳ 2000",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              AnimatedOpacity(
-                opacity: _isBalance ? 1 : 0,
-                duration: const Duration(milliseconds: 1000),
+    return InkWell(
+      onTap: changeState,
+      child: Container(
+        width: 155,
+        height: 30,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(15)),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            AnimatedOpacity(
+              opacity: _isBalanceShow ? 1 : 0,
+              duration: const Duration(milliseconds: 1000),
+              child: Container(
+                margin: const EdgeInsets.only(top: 3, right: 3),
                 child: const Text(
-                  "Balance",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  "500.0",
+                  style: TextStyle(fontSize: 16, color: primaryColor2),
                 ),
               ),
-              AnimatedPositioned(
-                duration: const Duration(milliseconds: 1000),
-                left: _isAnimation == false ? 5 : 135,
-                curve: Curves.fastOutSlowIn,
-                child: Container(
-                  height: 20,
-                  width: 20,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.pink,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: const Text(
-                    "৳",
-                    style: TextStyle(color: Colors.white, fontSize: 17),
-                  ),
+            ),
+            AnimatedOpacity(
+              opacity: _isBalance ? 1 : 0,
+              duration: const Duration(milliseconds: 1000),
+              child: Container(
+                margin: const EdgeInsets.only(left: 15),
+                child: const Text(
+                  "Tap for Balance",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: primaryColor2),
                 ),
-              )
-            ],
-          ),
+              ),
+            ),
+            AnimatedPositioned(
+              duration: const Duration(milliseconds: 1000),
+              left: _isAnimation == false ? 5 : 130,
+              curve: Curves.fastOutSlowIn,
+              child: Container(
+                height: 20,
+                width: 20,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: primaryColor2,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: const Text(
+                  "৳",
+                  style: TextStyle(color: Colors.white, fontSize: 17),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
@@ -85,7 +90,7 @@ class _ShowBalanceAnimationWidgetState
               )
             });
     await Future.delayed(
-        const Duration(milliseconds: 800),
+        const Duration(seconds: 5),
         () => {
               setState(
                 () => _isBalanceShow = false,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/screens/HomeScreen/Widgets/Home.dart';
 import 'package:prac_bkash_app/screens/InboxScreen/InboxScreen.dart';
+import 'package:prac_bkash_app/utilities/constants.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../QrScannerScreen/QrcodeScreen.dart';
@@ -57,12 +58,12 @@ class _AppState extends State<Home> {
                       Icon(
                         Icons.home,
                         size: buttoniconSize,
-                        color: _currentTab == 0 ? Colors.pink : Colors.grey,
+                        color: _currentTab == 0 ? primaryColor2 : Colors.grey,
                       ),
                       Text(
                         'HOME',
                         style: TextStyle(
-                          color: _currentTab == 0 ? Colors.pink : Colors.grey,
+                          color: _currentTab == 0 ? primaryColor2 : Colors.grey,
                         ),
                       ),
                     ],
@@ -93,12 +94,12 @@ class _AppState extends State<Home> {
                       Icon(
                         Icons.mail_rounded,
                         size: buttoniconSize,
-                        color: _currentTab == 1 ? Colors.pink : Colors.grey,
+                        color: _currentTab == 1 ? primaryColor2 : Colors.grey,
                       ),
                       Text(
                         'INBOX',
                         style: TextStyle(
-                          color: _currentTab == 1 ? Colors.pink : Colors.grey,
+                          color: _currentTab == 1 ? primaryColor2 : Colors.grey,
                         ),
                       ),
                     ],
@@ -114,10 +115,10 @@ class _AppState extends State<Home> {
           backgroundColor: Colors.white,
           onPressed: () {
             Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => QrcodeScannerScreen(),
-                    ),
-                  );
+              MaterialPageRoute(
+                builder: (context) => QrcodeScannerScreen(),
+              ),
+            );
           },
           child: const Icon(
             Icons.qr_code_scanner,

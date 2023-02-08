@@ -12,9 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'bKash UI',
       theme: ThemeData(
-        primarySwatch: primaryColor,
+        primarySwatch: primaryColor1,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const SpalshScreen(),
