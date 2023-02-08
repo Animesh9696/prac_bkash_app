@@ -12,17 +12,20 @@ class MenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(image),
-        addVerticalSpace(5.0),
-        Container(
-            alignment: Alignment.center,
-            child: Text(title, style: const TextStyle(color: Colors.black45))),
-      ],
+    return SizedBox(
+      height: 100,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(image),
+          addVerticalSpace(5.0),
+          Container(
+              alignment: Alignment.center,
+              child:
+                  Text(title, style: const TextStyle(color: Colors.black45))),
+        ],
+      ),
     );
   }
 }
