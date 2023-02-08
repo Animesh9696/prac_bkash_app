@@ -29,42 +29,44 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     'Coupons',
     'Log Out',
   ];
-  var draweritemimagelist = [
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
-    'assets/images/colorfly.png',
+  var draweritemiconlist = [
+    Icons.home,
+    Icons.book,
+    Icons.abc_rounded,
+    Icons.cut_outlined,
+    Icons.update,
+    Icons.home,
+    Icons.location_city,
+    Icons.update,
+    Icons.settings,
+    Icons.people,
+    Icons.support,
+    Icons.home,
+    Icons.logout_outlined,
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
         color: Colors.white,
-        width: 300,
+        width: 350,
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.only(right: 120),
-              padding: addPadding(10),
+              margin: const EdgeInsets.only(top: 15, right: 160),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
                     "bKash Menu",
-                    style: TextStyle(fontSize: 25, color: Colors.pink),
+                    style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.pink,
+                        fontWeight: FontWeight.bold),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20, bottom: 20),
+                    margin: const EdgeInsets.only(top: 40, bottom: 20),
                     padding: const EdgeInsets.only(
                         left: 25, right: 25, top: 5, bottom: 5),
                     decoration: BoxDecoration(
@@ -79,74 +81,69 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               ),
             ),
             Expanded(
-                child: ListView.builder(
-                    itemCount: draweritemtitlelist.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
-                        onTap: () {
-                          if (index == 12) {
-                            Navigator.of(context).pushAndRemoveUntil(
-                                MaterialPageRoute(
-                                    builder: (context) => const LoginScreen()),
-                                (Route route) => false);
-                          } else {
-                            Navigator.of(context).pop(
+                child: Container(
+              child: ListView.builder(
+                  itemCount: draweritemtitlelist.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        if (index == 12) {
+                          Navigator.of(context).pushAndRemoveUntil(
                               MaterialPageRoute(
-                                builder: (context) => const Home(),
-                              ),
-                            );
-                          }
-
-                          final snackBar = SnackBar(
-                            behavior: SnackBarBehavior.floating,
-                            content: Text(
-                                "You Clicked ${draweritemtitlelist[index]}"),
-                            action: SnackBarAction(
-                              label: 'Undo',
-                              onPressed: () {
-                                // Some code to undo the change.
-                              },
+                                  builder: (context) => const LoginScreen()),
+                              (Route route) => false);
+                        } else {
+                          Navigator.of(context).pop(
+                            MaterialPageRoute(
+                              builder: (context) => const Home(),
                             ),
                           );
-                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                        },
-                        child: Container(
-                          height: 71,
-                          child: Column(
-                            children: [
-                              Container(
-                                color: Colors.white,
-                                height: 70,
-                                child: ListTile(
-                                    leading: Image.asset(
-                                      draweritemimagelist[index],
-                                      height: 40,
-                                      width: 40,
-                                    ),
-                                    trailing: const Text(
-                                      "●",
-                                      style: TextStyle(
-                                          color: Colors.pink, fontSize: 25),
-                                    ),
-                                    title: Text(
-                                      draweritemtitlelist[index],
-                                      style: const TextStyle(
-                                          fontSize: 18,
-                                          color: secondaryTextColor,
-                                          fontWeight: FontWeight.bold),
-                                    )),
-                              ),
-                              Container(
-                                color: Color.fromARGB(255, 134, 130, 130),
-                                child: const Divider(
-                                  height: 1,
-                                ),
-                              )
-                            ],
+                        }
+
+                        final snackBar = SnackBar(
+                          behavior: SnackBarBehavior.floating,
+                          content:
+                              Text("You Clicked ${draweritemtitlelist[index]}"),
+                          action: SnackBarAction(
+                            label: 'Undo',
+                            onPressed: () {
+                              // Some code to undo the change.
+                            },
                           ),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      },
+                      child: Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              padding: addPadding(5),
+                              color: Colors.white,
+                              child: ListTile(
+                                  leading: Icon(
+                                    draweritemiconlist[index],
+                                    size: 43,
+                                    color: primaryColor2,
+                                  ),
+                                  trailing: const Text(
+                                    "●",
+                                    style: TextStyle(
+                                        color: Colors.pink, fontSize: 25),
+                                  ),
+                                  title: Text(
+                                    draweritemtitlelist[index],
+                                    style: const TextStyle(
+                                        fontSize: 18,
+                                        color: secondaryTextColor,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                            ),
+                          ],
                         ),
-                      );
-                    })),
+                      ),
+                    );
+                  }),
+            )),
           ],
         ));
   }

@@ -27,6 +27,7 @@ class _BodyWidgetState extends State<BodyWidget> {
   bool arrowVisible = true;
   String addStar = "";
   final TextEditingController _controller = TextEditingController();
+  ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +83,7 @@ class _BodyWidgetState extends State<BodyWidget> {
             ),
             Expanded(
               child: SingleChildScrollView(
+                controller: _scrollController,
                 child: Container(
                   margin: const EdgeInsets.only(left: 30, right: 30, top: 35),
                   child: Column(children: [
@@ -165,7 +167,7 @@ class _BodyWidgetState extends State<BodyWidget> {
                       ),
                     ),
                     TextFormField(
-                      style: TextStyle(fontSize: 19),
+                      style: const TextStyle(fontSize: 19),
                       obscureText: true,
                       controller: _controller,
                       showCursor: true,
@@ -174,6 +176,13 @@ class _BodyWidgetState extends State<BodyWidget> {
                       obscuringCharacter: '●',
                       readOnly: true,
                       onTap: () {
+                        if (_isVisible) {
+                          _scrollController.animateTo(
+                              _scrollController.position.minScrollExtent,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.ease);
+                        }
+
                         setState(() {
                           if (!_isVisible) {
                             _isVisible = true;
@@ -220,8 +229,10 @@ class _BodyWidgetState extends State<BodyWidget> {
             ),
             Visibility(
                 visible: _isVisible,
-                child: CustomKeyboard(onKeybordButtonPressed: _onKeybordButtonPressed, keyboardArrowForward: keyboardArrowForward, clearPassword: clearPassword)
-                )
+                child: CustomKeyboard(
+                    onKeybordButtonPressed: _onKeybordButtonPressed,
+                    keyboardArrowForward: keyboardArrowForward,
+                    clearPassword: clearPassword))
           ],
         ),
         onWillPop: () async {
@@ -301,6 +312,3 @@ class _BodyWidgetState extends State<BodyWidget> {
     });
   }
 }
-
-
-

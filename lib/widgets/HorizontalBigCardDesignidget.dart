@@ -31,7 +31,9 @@ class HorizontalBigCardDesignidget extends StatelessWidget {
               children: [
                 Text(
                   topic,
-                  style: TextStyle(color: Color.fromARGB(255, 119, 116, 116)),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 119, 116, 116)),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -57,7 +59,12 @@ class HorizontalBigCardDesignidget extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(topic),
+                                      Text(
+                                        topic,
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: secondaryTextColor),
+                                      ),
                                       GestureDetector(
                                         onTap: () {
                                           Navigator.pop(context);

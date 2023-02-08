@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/utilities/constants.dart';
 
 import '../utilities/spacingWidget.dart';
-
 
 typedef KeybordKeyCallback = void Function(String key);
 
@@ -29,14 +29,11 @@ class CustomKeyboard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("1"),
-                    text: "1"),
+                    onPress: () => onKeybordButtonPressed("1"), text: "1"),
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("2"),
-                    text: "2"),
+                    onPress: () => onKeybordButtonPressed("2"), text: "2"),
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("3"),
-                    text: "3"),
+                    onPress: () => onKeybordButtonPressed("3"), text: "3"),
               ],
             ),
           ),
@@ -46,14 +43,11 @@ class CustomKeyboard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("4"),
-                    text: "4"),
+                    onPress: () => onKeybordButtonPressed("4"), text: "4"),
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("5"),
-                    text: "5"),
+                    onPress: () => onKeybordButtonPressed("5"), text: "5"),
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("6"),
-                    text: "6"),
+                    onPress: () => onKeybordButtonPressed("6"), text: "6"),
               ],
             ),
           ),
@@ -63,19 +57,16 @@ class CustomKeyboard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("7"),
-                    text: "7"),
+                    onPress: () => onKeybordButtonPressed("7"), text: "7"),
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("8"),
-                    text: "8"),
+                    onPress: () => onKeybordButtonPressed("8"), text: "8"),
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("9"),
-                    text: "9"),
+                    onPress: () => onKeybordButtonPressed("9"), text: "9"),
               ],
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 9),
+            margin: const EdgeInsets.only(top: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -88,12 +79,11 @@ class CustomKeyboard extends StatelessWidget {
                   shape: const CircleBorder(),
                   child: const Icon(
                     Icons.cancel,
-                    size: 30,
+                    size: 35,
                   ),
                 ),
                 KeybordButton(
-                    onPress: () => onKeybordButtonPressed("0"),
-                    text: "0"),
+                    onPress: () => onKeybordButtonPressed("0"), text: "0"),
                 MaterialButton(
                   onPressed: () {
                     keyboardArrowForward();
@@ -101,7 +91,10 @@ class CustomKeyboard extends StatelessWidget {
                   color: Colors.pink,
                   textColor: Colors.black,
                   shape: const CircleBorder(),
-                  child: const Icon(Icons.arrow_forward),
+                  child: const Icon(
+                    Icons.arrow_forward,
+                    size: 35,
+                  ),
                 ),
               ],
             ),
@@ -110,11 +103,7 @@ class CustomKeyboard extends StatelessWidget {
       ),
     );
   }
-
-
-
 }
-
 
 class KeybordButton extends StatelessWidget {
   final VoidCallback onPress;
@@ -127,14 +116,18 @@ class KeybordButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      padding: addPadding(5),
+    return TextButton(
+      style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(55.0),
+      ))),
       onPressed: onPress,
-      color: Colors.white,
-      textColor: Colors.black,
-      shape: const CircleBorder(),
-      child: Text(text,
-          style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+      child: Text(
+        text,
+        style: const TextStyle(
+            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 32),
+      ),
     );
   }
 }

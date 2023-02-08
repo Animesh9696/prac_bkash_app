@@ -3,6 +3,7 @@ import 'package:prac_bkash_app/utilities/constants.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
 
 import '../../../../widgets/MenuWidget.dart';
+import '../../../widgets/MenuMoreWidget.dart';
 
 class MoreServices extends StatelessWidget {
   const MoreServices({Key? key}) : super(key: key);
@@ -38,37 +39,7 @@ class MoreServices extends StatelessWidget {
                   border: Border.all(
                       width: 1,
                       color: const Color.fromARGB(255, 230, 224, 224))),
-              child: Column(
-                children: [
-                  Row(
-                    children: const [
-                      MenuWidget(
-                          title: 'Send Money',
-                          image: 'assets/images/send_money.jpg'),
-                      MenuWidget(
-                          title: 'Recharge',
-                          image: 'assets/images/mobile_recharge.jpg'),
-                      MenuWidget(
-                          title: 'Cash Out',
-                          image: 'assets/images/cash_out.jpg'),
-                      MenuWidget(
-                          title: 'Payment',
-                          image: 'assets/images/make_payment.jpg'),
-                    ],
-                  ),
-                  addVerticalSpace(8),
-                  Row(
-                    children: const [
-                      MenuWidget(
-                          title: 'Add Money',
-                          image: 'assets/images/add_money.jpg'),
-                      MenuWidget(
-                          title: 'Pay Bill',
-                          image: 'assets/images/pay_bill.jpg'),
-                    ],
-                  ),
-                ],
-              ),
+              child: MenuMoreWidget(menuMore: moreservcieSample),
             )
           ],
         ));

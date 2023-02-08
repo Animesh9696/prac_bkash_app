@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prac_bkash_app/models/MoreService.dart';
 import 'package:prac_bkash_app/models/MyBkashModel.dart';
 import 'package:prac_bkash_app/models/OfferModel.dart';
 
+import '../models/Menu.dart';
 import '../models/SuggestionModel.dart';
 
 //Color Section
@@ -34,51 +36,74 @@ const bannerImage = "assets/images/banner.jpg";
 //sample Data array section
 
 List<MyBkashModel> mykashsampleList = [
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
-  MyBkashModel("Priyo Number", "assets/images/cash_out.jpg"),
+  MyBkashModel("Priyo Number", "assets/images/mobile_recharge.jpg"),
+  MyBkashModel("Saved Bill", "assets/images/pay_bill.jpg"),
+  MyBkashModel("01780469421", "assets/images/mobile_recharge.jpg"),
+  MyBkashModel("01780469421", "assets/images/mobile_recharge.jpg"),
+  MyBkashModel("01780469421", "assets/images/mobile_recharge.jpg"),
+  MyBkashModel("01780469421", "assets/images/mobile_recharge.jpg"),
+  MyBkashModel("01780469421", "assets/images/mobile_recharge.jpg"),
+  MyBkashModel("01780469421", "assets/images/mobile_recharge.jpg"),
+  MyBkashModel("01780469421", "assets/images/mobile_recharge.jpg"),
+  MyBkashModel("01780469421", "assets/images/mobile_recharge.jpg"),
 ];
 
 List<SuggestionModel> suggestionsampleList = [
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
-  SuggestionModel("Daraz", "assets/images/cash_out.jpg"),
+  SuggestionModel("Daraz", "assets/images/daraz.jpg"),
+  SuggestionModel("Donation", "assets/images/donation.jpg"),
+  SuggestionModel("BTCL", "assets/images/btcl.jpg"),
+  SuggestionModel("Color Fly", "assets/images/flyover_toll.jpg"),
+  SuggestionModel("Flyover Toll", "assets/images/flyover_toll.jpg"),
+  SuggestionModel("Donation", "assets/images/donation.jpg"),
+  SuggestionModel("BTCL", "assets/images/btcl.jpg"),
+  SuggestionModel("Color Fly", "assets/images/flyover_toll.jpg"),
+  SuggestionModel("Donation", "assets/images/donation.jpg"),
+  SuggestionModel("BTCL", "assets/images/btcl.jpg"),
+  SuggestionModel("Color Fly", "assets/images/flyover_toll.jpg"),
 ];
 
 List<OfferModel> offersampleList = [
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
-  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/cash_out.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/shadhin_music.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/grameenphone.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/metlife.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/robi.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/tickets.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/grameenphone.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/metlife.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/robi.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/tickets.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/grameenphone.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/metlife.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/robi.jpg"),
+  OfferModel("Up to 150", "Ekushy Boi Mela", "assets/images/tickets.jpg"),
+];
+
+//for more service
+
+List<MoreService> moreservcieSample = [
+  MoreService("Tickets", "assets/images/tickets.jpg"),
+  MoreService("GrameenPhone", "assets/images/grameenphone.jpg"),
+  MoreService("Donation", "assets/images/donation.jpg"),
+  MoreService("Daraz", "assets/images/daraz.jpg"),
+  MoreService("Metlife", "assets/images/metlife.jpg"),
+  MoreService("Shopping", "assets/images/ajkerdeal.jpg"),
+];
+
+//for menu
+
+List<MenuModel> menuSample = [
+  MenuModel("Send Money", "assets/images/send_money.jpg"),
+  MenuModel("Recharge", "assets/images/mobile_recharge.jpg"),
+  MenuModel("Cash Out", "assets/images/cash_out.jpg"),
+  MenuModel("Payment", "assets/images/make_payment.jpg"),
+  MenuModel("Add Money", "assets/images/add_money.jpg"),
+  MenuModel("Pay Bill", "assets/images/pay_bill.jpg"),
+  MenuModel("Cash Out", "assets/images/cash_out.jpg"),
+  MenuModel("Payment", "assets/images/make_payment.jpg"),
+  MenuModel("Add Money", "assets/images/add_money.jpg"),
+  MenuModel("Cash Out", "assets/images/cash_out.jpg"),
+  MenuModel("Met Life", "assets/images/metlife.jpg"),
+  MenuModel("More", "assets/images/more.jpg"),
 ];
 
 //sample image array section

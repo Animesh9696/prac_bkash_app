@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prac_bkash_app/utilities/constants.dart';
 import 'package:prac_bkash_app/utilities/spacingWidget.dart';
+import 'package:prac_bkash_app/widgets/MenuMoreWidget.dart';
 
 import '../../../../widgets/MenuWidget.dart';
 
@@ -13,8 +14,6 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   double size = 310;
-  // ignore: non_constant_identifier_names
-  double t_margin = 45;
   bool visible = true;
 
   @override
@@ -23,85 +22,11 @@ class _MenuState extends State<Menu> {
       alignment: Alignment.bottomCenter,
       children: [
         Container(
-          alignment: Alignment.center,
+          height: size,
+          alignment: Alignment.topCenter,
           child: SizedBox(
-            height: size,
-            child: Column(
-              children: [
-                Row(
-                  children: const [
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Send Money',
-                          image: 'assets/images/send_money.jpg'),
-                    ),
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Recharge',
-                          image: 'assets/images/mobile_recharge.jpg'),
-                    ),
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Cash Out',
-                          image: 'assets/images/cash_out.jpg'),
-                    ),
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Payment',
-                          image: 'assets/images/make_payment.jpg'),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: const [
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Send Money',
-                          image: 'assets/images/send_money.jpg'),
-                    ),
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Recharge',
-                          image: 'assets/images/mobile_recharge.jpg'),
-                    ),
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Cash Out',
-                          image: 'assets/images/cash_out.jpg'),
-                    ),
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Payment',
-                          image: 'assets/images/make_payment.jpg'),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: const [
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Send Money',
-                          image: 'assets/images/send_money.jpg'),
-                    ),
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Recharge',
-                          image: 'assets/images/mobile_recharge.jpg'),
-                    ),
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Cash Out',
-                          image: 'assets/images/cash_out.jpg'),
-                    ),
-                    Expanded(
-                      child: MenuWidget(
-                          title: 'Payment',
-                          image: 'assets/images/make_payment.jpg'),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            height: 310,
+            child: MenuMoreWidget(menuMore: menuSample),
           ),
         ),
         Visibility(
@@ -117,7 +42,7 @@ class _MenuState extends State<Menu> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(bottom: t_margin),
+          margin: const EdgeInsets.only(bottom: 20),
           child: Container(
             alignment: Alignment.center,
             width: 110,
@@ -127,12 +52,10 @@ class _MenuState extends State<Menu> {
                 setState(() {
                   if (visible) {
                     visible = false;
-                    size = 350;
-                    t_margin = 8;
+                    size = 380;
                   } else {
                     visible = true;
                     size = 310;
-                    t_margin = 45;
                   }
                 });
               },
