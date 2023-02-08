@@ -30,46 +30,74 @@ class _MenuState extends State<Menu> {
               children: [
                 Row(
                   children: const [
-                    MenuWidget(
-                        title: 'Send Money',
-                        image: 'assets/images/send_money.jpg'),
-                    MenuWidget(
-                        title: 'Recharge',
-                        image: 'assets/images/mobile_recharge.jpg'),
-                    MenuWidget(
-                        title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
-                    MenuWidget(
-                        title: 'Payment',
-                        image: 'assets/images/make_payment.jpg'),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Send Money',
+                          image: 'assets/images/send_money.jpg'),
+                    ),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Recharge',
+                          image: 'assets/images/mobile_recharge.jpg'),
+                    ),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Cash Out',
+                          image: 'assets/images/cash_out.jpg'),
+                    ),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Payment',
+                          image: 'assets/images/make_payment.jpg'),
+                    ),
                   ],
                 ),
                 Row(
                   children: const [
-                    MenuWidget(
-                        title: 'Send Money',
-                        image: 'assets/images/send_money.jpg'),
-                    MenuWidget(
-                        title: 'Recharge',
-                        image: 'assets/images/mobile_recharge.jpg'),
-                    MenuWidget(
-                        title: 'Cash Out', image: 'assets/images/cash_out.jpg'),
-                    MenuWidget(
-                        title: 'Payment',
-                        image: 'assets/images/make_payment.jpg'),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Send Money',
+                          image: 'assets/images/send_money.jpg'),
+                    ),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Recharge',
+                          image: 'assets/images/mobile_recharge.jpg'),
+                    ),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Cash Out',
+                          image: 'assets/images/cash_out.jpg'),
+                    ),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Payment',
+                          image: 'assets/images/make_payment.jpg'),
+                    ),
                   ],
                 ),
                 Row(
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    const MenuWidget(
-                        title: 'Add Money',
-                        image: 'assets/images/add_money.jpg'),
-                    const MenuWidget(
-                        title: 'Pay Bill', image: 'assets/images/pay_bill.jpg'),
-                    const MenuWidget(
-                        title: 'Tickets', image: 'assets/images/tickets.jpg'),
-                    const MenuWidget(
-                        title: 'More', image: 'assets/images/more.jpg'),
+                  children: const [
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Send Money',
+                          image: 'assets/images/send_money.jpg'),
+                    ),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Recharge',
+                          image: 'assets/images/mobile_recharge.jpg'),
+                    ),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Cash Out',
+                          image: 'assets/images/cash_out.jpg'),
+                    ),
+                    Expanded(
+                      child: MenuWidget(
+                          title: 'Payment',
+                          image: 'assets/images/make_payment.jpg'),
+                    ),
                   ],
                 ),
               ],
