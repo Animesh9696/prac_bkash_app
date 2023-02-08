@@ -172,13 +172,12 @@ class _BodyWidgetState extends State<BodyWidget> {
                       controller: _controller,
                       showCursor: true,
                       autofocus: true,
-                      maxLength: 5,
                       obscuringCharacter: '●',
                       readOnly: true,
                       onTap: () {
                         if (_isVisible) {
                           _scrollController.animateTo(
-                              _scrollController.position.minScrollExtent,
+                              _scrollController.position.maxScrollExtent,
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.ease);
                         }

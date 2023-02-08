@@ -126,7 +126,7 @@ class KeybordButton extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(
-            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 32),
+            color: secondaryColor, fontWeight: FontWeight.bold, fontSize: 32),
       ),
     );
   }

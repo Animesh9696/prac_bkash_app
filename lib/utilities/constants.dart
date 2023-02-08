@@ -82,7 +82,7 @@ List<OfferModel> offersampleList = [
 
 List<MoreService> moreservcieSample = [
   MoreService("Tickets", "assets/images/tickets.jpg"),
-  MoreService("GrameenPhone", "assets/images/grameenphone.jpg"),
+  MoreService("Grameen", "assets/images/grameenphone.jpg"),
   MoreService("Donation", "assets/images/donation.jpg"),
   MoreService("Daraz", "assets/images/daraz.jpg"),
   MoreService("Metlife", "assets/images/metlife.jpg"),

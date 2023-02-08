@@ -49,11 +49,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.white,
-        width: 350,
+        width: 300,
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 15, right: 160),
+              margin: const EdgeInsets.only(top: 15, right: 120),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,7 +122,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                               child: ListTile(
                                   leading: Icon(
                                     draweritemiconlist[index],
-                                    size: 43,
+                                    size: 35,
                                     color: primaryColor2,
                                   ),
                                   trailing: const Text(

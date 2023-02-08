@@ -13,7 +13,7 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
-  double size = 310;
+  double size = 280;
   bool visible = true;
 
   @override
@@ -25,7 +25,7 @@ class _MenuState extends State<Menu> {
           height: size,
           alignment: Alignment.topCenter,
           child: SizedBox(
-            height: 310,
+            height: 280,
             child: MenuMoreWidget(menuMore: menuSample),
           ),
         ),
@@ -52,10 +52,10 @@ class _MenuState extends State<Menu> {
                 setState(() {
                   if (visible) {
                     visible = false;
-                    size = 380;
+                    size = 350;
                   } else {
                     visible = true;
-                    size = 310;
+                    size = 280;
                   }
                 });
               },
